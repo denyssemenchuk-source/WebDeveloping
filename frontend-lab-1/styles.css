@@ -1,0 +1,60 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --button-bg: #f0f0f0;
+  --button-text: #1a1a1a;
+}
+
+[data-theme='dark'] {
+  --bg-color: #1a1a1a;
+  --text-color: #f0f0f0;
+  --button-bg: #333333;
+  --button-text: #f0f0f0;
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: system-ui, sans-serif;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#theme-toggle {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: 1px solid var(--text-color);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.site-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--button-bg);
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .site-footer {
+    font-size: 0.8rem;
+  }
+}
