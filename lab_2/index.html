@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="uk" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Лабораторна робота №2 — Основи CSS & AI-assisted Верстка</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Specificity & Cascade Demonstration Stylesheet Link -->
+    <style id="embedded-cascade-style">
+      /* Dynamic embedded style tag for Cascade experimentation */
+      .cascade-embedded-rule {
+        color: #8b5cf6;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main Sticky Navigation Bar -->
+    <header class="navbar">
+      <div class="container navbar__container">
+        <a href="#home" class="navbar__brand">
+          <span class="navbar__brand-icon">⚡</span>
+          <span>WebDev Lab 2</span>
+          <span class="navbar__brand-badge">CSS Deep Dive</span>
+        </a>
+
+        <nav>
+          <ul class="navbar__nav">
+            <li><a href="#home" class="navbar__link is-active">Головна</a></li>
+            <li><a href="#components" class="navbar__link">Компоненти</a></li>
+            <li><a href="#research-boxmodel" class="navbar__link">Box Model</a></li>
+            <li><a href="#research-cascade" class="navbar__link">Cascade & Specificity</a></li>
+            <li><a href="#research-inheritance" class="navbar__link">Inheritance & Variables</a></li>
+            <li><a href="research.html" class="navbar__link">Дослідження (Окремо)</a></li>
+          </ul>
+        </nav>
+
+        <div class="navbar__actions">
+          <button id="theme-toggle" class="btn btn--icon" type="button" aria-label="Перемкнути тему">
+            <span id="theme-icon">🌙</span>
+          </button>
+          <a href="#research-boxmodel" class="btn btn--primary btn--sm">Почати тест</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="home">
+      <!-- Hero Section (Section 5: AI-assisted modern page) -->
+      <section class="hero">
+        <div class="container hero__content">
+          <span class="badge badge--primary hero__badge">Лабораторна робота №2 • AI-assisted верстка</span>
+          <h1 class="hero__title">
+            Сучасна архітектура CSS: <br />
+            <span class="hero__title-gradient">Box Model, Cascade & Specificity</span>
+          </h1>
+          <p class="hero__lead">
+            Практичне дослідження фундаментальних концепцій CSS: розрахунок геометричних розмірів,
+            вирішення конфліктів стилів, керування спадкуванням та компонентний дизайн із CSS Custom Properties.
+          </p>
+          <div class="hero__cta-group">
+            <a href="#research-boxmodel" class="btn btn--primary btn--lg">Експерименти DevTools</a>
+            <a href="#components" class="btn btn--secondary btn--lg">Огляд компонентів</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5 Showcase: Reusable Component System (.card, .badge, .btn) -->
+      <section id="components" class="section">
+        <div class="container">
+          <div class="section__header">
+            <span class="badge badge--success">DRY & Модульність</span>
+            <h2 class="section__title">Компонентна система інтерфейсу</h2>
+            <p class="section__subtitle">
+              Демонстрація перевикористовуваних класів з модифікаторами та локальною областю видимості CSS-змінних.
+            </p>
+          </div>
+
+          <div class="grid grid--3-cols">
+            <!-- Card 1: Default Surface -->
+            <article class="card">
+              <div class="card__header">
+                <span class="badge badge--primary">Core Concept</span>
+                <h3 class="card__title">Box-Sizing: border-box</h3>
+              </div>
+              <div class="card__body">
+                <p>
+                  Забезпечує передбачуваність розмітки: відступи (padding) та рамки (border) включаються в задані width і height, запобігаючи несподіваному виходу за межі контейнера.
+                </p>
+              </div>
+              <div class="card__footer">
+                <span class="badge">01. Layout</span>
+                <a href="#research-boxmodel" class="btn btn--outline btn--sm">Аналізувати</a>
+              </div>
+            </article>
+
+            <!-- Card 2: Local CSS Variable Scope (Dark Card) -->
+            <article class="card card--dark">
+              <div class="card__header">
+                <span class="badge badge--warning">Scoped Variables</span>
+                <h3 class="card__title">Локальні CSS Змінні</h3>
+              </div>
+              <div class="card__body">
+                <p>
+                  Ця картка демонструє локальне перевизначення токенів <code>--card-bg</code> та <code>--card-text</code> без модифікації глобального <code>:root</code>.
+                </p>
+              </div>
+              <div class="card__footer">
+                <span class="badge">02. Variables</span>
+                <a href="#research-variables" class="btn btn--primary btn--sm">Дослідити scope</a>
+              </div>
+            </article>
+
+            <!-- Card 3: Accent Modifier -->
+            <article class="card card--accent">
+              <div class="card__header">
+                <span class="badge badge--success">Inheritance</span>
+                <h3 class="card__title">Успадкування стилів</h3>
+              </div>
+              <div class="card__body">
+                <p>
+                  Шрифти та кольори успадковуються від предків без зайвого дублювання коду, тоді як інтерактивні елементи (кнопки, посилання) контролюються явно через <code>inherit</code>.
+                </p>
+              </div>
+              <div class="card__footer">
+                <span class="badge">03. Cascade</span>
+                <a href="#research-inheritance" class="btn btn--outline btn--sm">Перевірити</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           RESEARCH TASKS 4.1 - 4.6 (Interactive Demonstrations & DevTools Lab)
+           ==================================================================== -->
+      <section id="research-boxmodel" class="section section--alt">
+        <div class="container">
+          <div class="section__header">
+            <span class="badge badge--primary">Дослідницьке завдання 4.1</span>
+            <h2 class="section__title">4.1. Box Model: Content-Box vs Border-Box</h2>
+            <p class="section__subtitle">
+              Порівняння двох моделей розрахунку фізичного розміру елемента при однакових width: 260px, height: 140px, padding: 24px, border: 8px.
+            </p>
+          </div>
+
+          <div class="research-block">
+            <div class="research-demo-grid">
+              <!-- Content-Box Demo -->
+              <div class="demo-panel">
+                <div class="demo-panel__title">
+                  <strong>1. box-sizing: content-box</strong>
+                  <span class="badge badge--warning">W3C Default</span>
+                </div>
+                <div class="box-model-demo-box box-model-demo-box--content-box" id="box-content-box">
+                  <span>content-box<br />260 × 140</span>
+                </div>
+                <table class="computed-table">
+                  <thead>
+                    <tr><th>Параметр</th><th>Значення в CSS</th><th>Computed DevTools</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Content Box</td><td>260 × 140 px</td><td>260 × 140 px</td></tr>
+                    <tr><td>Padding (L+R, T+B)</td><td>24px + 24px</td><td>+48px / +48px</td></tr>
+                    <tr><td>Border (L+R, T+B)</td><td>8px + 8px</td><td>+16px / +16px</td></tr>
+                    <tr><td><strong>Загальна ширина</strong></td><td><strong>width: 260px</strong></td><td><strong>324 px</strong> (260 + 48 + 16)</td></tr>
+                    <tr><td><strong>Загальна висота</strong></td><td><strong>height: 140px</strong></td><td><strong>204 px</strong> (140 + 48 + 16)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Border-Box Demo -->
+              <div class="demo-panel">
+                <div class="demo-panel__title">
+                  <strong>2. box-sizing: border-box</strong>
+                  <span class="badge badge--success">Modern Standard</span>
+                </div>
+                <div class="box-model-demo-box box-model-demo-box--border-box" id="box-border-box">
+                  <span>border-box<br />260 × 140</span>
+                </div>
+                <table class="computed-table">
+                  <thead>
+                    <tr><th>Параметр</th><th>Значення в CSS</th><th>Computed DevTools</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Content Box</td><td>Автоматично вираховується</td><td>196 × 76 px</td></tr>
+                    <tr><td>Padding (L+R, T+B)</td><td>24px + 24px</td><td>+48px / +48px</td></tr>
+                    <tr><td>Border (L+R, T+B)</td><td>8px + 8px</td><td>+16px / +16px</td></tr>
+                    <tr><td><strong>Загальна ширина</strong></td><td><strong>width: 260px</strong></td><td><strong>260 px</strong> (фіксовано)</td></tr>
+                    <tr><td><strong>Загальна висота</strong></td><td><strong>height: 140px</strong></td><td><strong>140 px</strong> (фіксовано)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Box Model Controls -->
+            <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+              <label><strong>Змінити Padding:</strong></label>
+              <input type="range" id="padding-slider" min="0" max="50" value="24" />
+              <span id="padding-val">24px</span>
+              <button class="btn btn--secondary btn--sm" id="btn-reset-boxmodel">Скинути до початкових</button>
+            </div>
+
+            <div class="code-box">
+              <code>/* Висновок Box Model: */
+*, *::before, *::after {
+  box-sizing: border-box; /* Гарантує, що розмір елемента на екрані чітко відповідає width/height */
+}</code>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4.2 Cascade & 4.3 Specificity Section -->
+      <section id="research-cascade" class="section">
+        <div class="container">
+          <div class="section__header">
+            <span class="badge badge--primary">Дослідницькі завдання 4.2 & 4.3</span>
+            <h2 class="section__title">4.2 Cascade (Каскад) & 4.3 Specificity (Специфічність)</h2>
+            <p class="section__subtitle">
+              Аналіз правил каскадування стилів за порядком оголошення та калькуляція специфічності (a, b, c).
+            </p>
+          </div>
+
+          <div class="grid grid--2-cols">
+            <!-- 4.2 Cascade Experiment -->
+            <div class="research-block">
+              <div class="research-block__header">
+                <h3>4.2. Порядок каскаду (Source Order)</h3>
+                <span class="badge badge--primary">Cascade Resolution</span>
+              </div>
+              <p>
+                Елемент має два класи <code>.color-rule-a</code> (Blue) та <code>.color-rule-b</code> (Red) з однаковою специфічністю (0, 1, 0).
+              </p>
+
+              <div class="cascade-target color-rule-a color-rule-b" id="cascade-target-box">
+                Текст каскадного тесту: .color-rule-a + .color-rule-b
+              </div>
+
+              <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <button class="btn btn--secondary btn--sm" id="btn-toggle-cascade-order">Змінити порядок класів у class="..."</button>
+                <button class="btn btn--primary btn--sm" id="btn-apply-inline">Додати Style Tag override</button>
+              </div>
+
+              <div class="code-box" style="margin-top: 1rem;">
+                <code>/* Пояснення: Порядок класів у атрибуті class="b a" НЕ впливає на пріоритет!
+Перемагає правило, оголошене ПІЗНІШЕ в CSS-файлі (Source Order Rule). */
+.color-rule-a { color: #2563eb; } /* Оголошено 1-м */
+.color-rule-b { color: #dc2626; } /* Оголошено 2-м -> ПЕРЕМАГАЄ */</code>
+              </div>
+            </div>
+
+            <!-- 4.3 Specificity Experiment -->
+            <div class="research-block">
+              <div class="research-block__header">
+                <h3>4.3. Калькуляція специфічності</h3>
+                <span class="badge badge--warning">ID vs Class Chain</span>
+              </div>
+              <p>
+                Тестування: Тег (0,0,1) vs Ланцюжок із 10 класів (0,10,0) vs ID селектор (1,0,0).
+              </p>
+
+              <div
+                id="specificity-target-id"
+                class="specificity-demo-item spec-c1 spec-c2 spec-c3 spec-c4 spec-c5 spec-c6 spec-c7 spec-c8 spec-c9 spec-c10"
+                style="padding: 1rem; border: 1px solid var(--color-border); border-radius: var(--radius-md); text-align: center; margin-top: 1rem;"
+              >
+                #specificity-target-id (Зелений колір)
+              </div>
+
+              <table class="computed-table">
+                <thead>
+                  <tr><th>Селектор</th><th>Вага (ID, Class, Element)</th><th>Результат</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><code>div</code></td><td>(0, 0, 0, 1) = 1 pt</td><td>Перебито</td></tr>
+                  <tr><td><code>div.specificity-demo-item</code></td><td>(0, 0, 1, 1) = 11 pt</td><td>Перебито</td></tr>
+                  <tr><td><code>.spec-c1.spec-c2... (x10)</code></td><td>(0, 0, 10, 0) = 100 pt</td><td>Перебито</td></tr>
+                  <tr><td><strong><code>#specificity-target-id</code></strong></td><td><strong>(0, 1, 0, 0) = 1000 pt</strong></td><td><strong>ПЕРЕМОЖЕЦЬ</strong></td></tr>
+                </tbody>
+              </table>
+
+              <div class="code-box">
+                <code>/* Навіть 100 класів не переб'ють 1 ID, бо розряди специфічності (A, B, C)
+не переходять один в одного: (1, 0, 0) > (0, 100, 0) */</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4.4 Inheritance & 4.5 CSS Variables Section -->
+      <section id="research-inheritance" class="section section--alt">
+        <div class="container">
+          <div class="section__header">
+            <span class="badge badge--primary">Дослідницькі завдання 4.4 & 4.5</span>
+            <h2 class="section__title">4.4 Inheritance (Успадкування) & 4.5 CSS Variables Scope</h2>
+            <p class="section__subtitle">
+              Аналіз роботи спадкування властивостей (шрифти, колір) та локальної області видимості custom properties.
+            </p>
+          </div>
+
+          <div class="grid grid--2-cols">
+            <!-- 4.4 Inheritance Demo -->
+            <div class="research-block">
+              <div class="research-block__header">
+                <h3>4.4. Успадкування властивостей</h3>
+                <span class="badge badge--primary">Parent Container</span>
+              </div>
+              <p>
+                Контейнер має властивості: <code>font-family: 'Courier New'</code> та <code>color: #9333ea (фіолетовий)</code>.
+              </p>
+
+              <div class="inheritance-container">
+                <p>1. Елемент &lt;p&gt;: Природно успадкував колір та шрифт від батька.</p>
+                <a href="#" class="link-default">2. Елемент &lt;a&gt; (Default): Браузерний стиль (User Agent) блокує колір.</a><br />
+                <a href="#" class="link-inherited">3. Елемент &lt;a class="link-inherited"&gt;: color: inherit;</a><br /><br />
+                <button type="button" class="btn-default">Кнопка без inherit (UA font)</button>
+                <button type="button" class="btn-inherited">Кнопка з font: inherit & color: inherit</button>
+              </div>
+
+              <div class="code-box">
+                <code>/* Рішення для нормалізації спадкування: */
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+a.nav-link {
+  color: inherit;
+}</code>
+              </div>
+            </div>
+
+            <!-- 4.5 CSS Variables Scoping -->
+            <div class="research-block" id="research-variables">
+              <div class="research-block__header">
+                <h3>4.5. Область видимості CSS Variables</h3>
+                <span class="badge badge--success">Scoping & Tokens</span>
+              </div>
+              <p>
+                Змінні, оголошені в <code>:root</code>, є глобальними. Їх можна перевизначати локально в окремих селекторах.
+              </p>
+
+              <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+                <div class="card" style="padding: 1rem;">
+                  <strong>Глобальний Scope (:root)</strong>
+                  <p style="margin-top: 0.5rem; font-size: 0.875rem;">Використовує значення за замовчуванням: var(--color-bg-surface).</p>
+                </div>
+
+                <div class="card card--dark" style="padding: 1rem;">
+                  <strong>Локальний Scope (.card--dark)</strong>
+                  <p style="margin-top: 0.5rem; font-size: 0.875rem;">
+                    Перевизначено: <code>--card-bg: #1e1b4b; --card-text: #f5f3ff;</code>
+                  </p>
+                </div>
+              </div>
+
+              <div class="code-box" style="margin-top: 1rem;">
+                <code>.card {
+  background: var(--card-bg, var(--color-bg-surface));
+  color: var(--card-text, var(--color-text-primary));
+}
+.card--dark {
+  --card-bg: #1e1b4b; /* Локальний оверрайд */
+  --card-text: #f5f3ff;
+}</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4.6 Refactoring & DRY Section -->
+      <section class="section">
+        <div class="container">
+          <div class="section__header">
+            <span class="badge badge--primary">Дослідницьке завдання 4.6</span>
+            <h2 class="section__title">4.6. Повторне використання стилів (DRY)</h2>
+            <p class="section__subtitle">
+              Компонентний підхід замість унікальних стилів для кожного окремого елемента.
+            </p>
+          </div>
+
+          <div class="research-block">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2rem;">
+              <button class="btn btn--primary">.btn.btn--primary</button>
+              <button class="btn btn--secondary">.btn.btn--secondary</button>
+              <button class="btn btn--outline">.btn.btn--outline</button>
+              <button class="btn btn--primary btn--sm">.btn.btn--sm</button>
+              <button class="btn btn--primary btn--lg">.btn.btn--lg</button>
+            </div>
+
+            <div class="grid grid--2-cols">
+              <div class="demo-panel">
+                <h4 style="color: var(--color-danger); margin-bottom: 0.5rem;">❌ Погано: Дублювання (Non-DRY)</h4>
+                <div class="code-box">
+                  <code>/* 50 рядків дубльованого коду для кожної кнопки */
+#submit-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: blue;
+  color: white;
+  cursor: pointer;
+}
+#cancel-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: gray;
+  color: white;
+  cursor: pointer;
+}</code>
+                </div>
+              </div>
+
+              <div class="demo-panel">
+                <h4 style="color: var(--color-success); margin-bottom: 0.5rem;">✓ Добре: Компонентний підхід (DRY)</h4>
+                <div class="code-box">
+                  <code>/* Базовий клас .btn + модифікатори .btn--* */
+.btn {
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  cursor: pointer;
+}
+.btn--primary { background: var(--color-primary); }
+.btn--secondary { background: var(--color-bg-subtle); }</code>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p class="footer__text">
+          Лабораторна робота №2 • Виконано студентом Denys Semenchuk • WebDeveloping
+        </p>
+        <p class="footer__text" style="margin-top: 0.5rem;">
+          <a href="https://github.com/denyssemenchuk-source/WebDeveloping" target="_blank" rel="noopener">GitHub Repository</a> •
+          <a href="research.html">Звіт-дослідження</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

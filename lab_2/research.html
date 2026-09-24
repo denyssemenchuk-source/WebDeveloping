@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="uk" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Дослідницький звіт — Лабораторна робота №2</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar__container">
+        <a href="index.html" class="navbar__brand">
+          <span>⚡</span>
+          <span>WebDev Lab 2</span>
+          <span class="navbar__brand-badge">Звіт-дослідження</span>
+        </a>
+        <nav>
+          <ul class="navbar__nav">
+            <li><a href="index.html" class="navbar__link">← На головну</a></li>
+            <li><a href="#exp-1" class="navbar__link">4.1 Box Model</a></li>
+            <li><a href="#exp-2" class="navbar__link">4.2 Cascade</a></li>
+            <li><a href="#exp-3" class="navbar__link">4.3 Specificity</a></li>
+            <li><a href="#exp-4" class="navbar__link">4.4 Inheritance</a></li>
+            <li><a href="#exp-5" class="navbar__link">4.5 CSS Variables</a></li>
+            <li><a href="#exp-6" class="navbar__link">4.6 Refactoring</a></li>
+          </ul>
+        </nav>
+        <div class="navbar__actions">
+          <button id="theme-toggle" class="btn btn--icon" type="button" aria-label="Змінити тему">
+            <span id="theme-icon">🌙</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container section">
+      <div class="section__header">
+        <span class="badge badge--primary">Дослідницькі завдання 4.1 – 4.6</span>
+        <h1 class="section__title">Звіт практичних спостережень та аналізу CSS</h1>
+        <p class="section__subtitle">
+          Детальний опис поведінки браузерного рушія, обчислень DevTools Computed та висновки щодо побудови передбачуваного макету.
+        </p>
+      </div>
+
+      <!-- 4.1 Box Model -->
+      <section id="exp-1" class="research-block">
+        <div class="research-block__header">
+          <h2>4.1. Дослідження CSS Box Model</h2>
+          <span class="badge badge--primary">Computed Size Analysis</span>
+        </div>
+        <p><strong>Завдання:</strong> Створити два блоки <code>&lt;div&gt;</code> з однаковими width: 260px та height: 140px. Одному задати <code>box-sizing: content-box</code>, іншому — <code>border-box</code>. Додати padding: 24px та border: 8px.</p>
+
+        <div class="research-demo-grid">
+          <div class="demo-panel">
+            <h4>1. content-box (W3C Default)</h4>
+            <div class="box-model-demo-box box-model-demo-box--content-box">
+              <span>content-box (260x140)</span>
+            </div>
+            <p><strong>Фактичний розмір на екрані:</strong> 324px × 204px</p>
+            <p><strong>Формула:</strong> Total Width = width (260) + padding-left/right (48) + border-left/right (16) = 324px.</p>
+          </div>
+
+          <div class="demo-panel">
+            <h4>2. border-box (Modern Standard)</h4>
+            <div class="box-model-demo-box box-model-demo-box--border-box">
+              <span>border-box (260x140)</span>
+            </div>
+            <p><strong>Фактичний розмір на екрані:</strong> 260px × 140px</p>
+            <p><strong>Формула:</strong> Content Box = width (260) - padding (48) - border (16) = 196px × 76px.</p>
+          </div>
+        </div>
+
+        <div class="code-box">
+          <code><strong>Висновок:</strong> При використанні <code>box-sizing: border-box</code> розмір елемента чітко відповідає зазначеним у властивостях <code>width</code> та <code>height</code>, що унеможливлює розпирання сіток та спрощує розрахунки при адаптивній верстці.</code>
+        </div>
+      </section>
+
+      <!-- 4.2 Cascade -->
+      <section id="exp-2" class="research-block">
+        <div class="research-block__header">
+          <h2>4.2. Дослідження каскаду (The Cascade)</h2>
+          <span class="badge badge--primary">Source Order & Origin</span>
+        </div>
+        <p><strong>Завдання:</strong> Задати колір тексту для одного елемента трьома способами з однаковою специфічністю, але в різному порядку.</p>
+        <div class="demo-panel" style="margin: 1rem 0;">
+          <div class="cascade-target color-rule-a color-rule-b">
+            Тестовий блок: .color-rule-a (Blue) + .color-rule-b (Red)
+          </div>
+        </div>
+        <p><strong>Спостереження:</strong> Текст відображається червоним кольором (правило <code>.color-rule-b</code>), тому що воно розміщене в CSS файлі нижче за <code>.color-rule-a</code>.</p>
+        <div class="code-box">
+          <code><strong>Висновок:</strong> Порядок перерахування класів в HTML-атрибуті (наприклад, <code>class="color-rule-b color-rule-a"</code>) НЕ має значення. За однакової специфічності завжди перемагає правило, яке описане ПІЗНІШЕ у каскаді (Source Order).</code>
+        </div>
+      </section>
+
+      <!-- 4.3 Specificity -->
+      <section id="exp-3" class="research-block">
+        <div class="research-block__header">
+          <h2>4.3. Дослідження специфічності (Specificity)</h2>
+          <span class="badge badge--warning">ID vs Class Chains</span>
+        </div>
+        <p><strong>Завдання:</strong> Порівняти селектори тегу, класів та ID, спробувати перебити ID ланцюжком класів.</p>
+        <div class="demo-panel" style="margin: 1rem 0;">
+          <div id="specificity-target-id" class="specificity-demo-item spec-c1 spec-c2 spec-c3 spec-c4 spec-c5 spec-c6 spec-c7 spec-c8 spec-c9 spec-c10" style="padding: 1rem; border: 1px solid var(--color-border); text-align: center;">
+            #specificity-target-id завжди перемагає
+          </div>
+        </div>
+        <table class="computed-table">
+          <thead>
+            <tr><th>Селектор</th><th>Специфічність (Inline, ID, Class, Element)</th><th>Пріоритет</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>div</code></td><td>(0, 0, 0, 1)</td><td>Найнижчий</td></tr>
+            <tr><td><code>div.specificity-demo-item</code></td><td>(0, 0, 1, 1)</td><td>Низький</td></tr>
+            <tr><td><code>.c1.c2.c3.c4.c5.c6.c7.c8.c9.c10</code></td><td>(0, 0, 10, 0)</td><td>Середній</td></tr>
+            <tr><td><strong><code>#specificity-target-id</code></strong></td><td><strong>(0, 1, 0, 0)</strong></td><td><strong>Найвищий (Перемагає)</strong></td></tr>
+          </tbody>
+        </table>
+        <div class="code-box">
+          <code><strong>Висновок:</strong> Розряди специфічності строго ієрархічні. Навіть 1000 класів не можуть перебити 1 ID, оскільки значення в розряді ID (0,1,0,0) завжди вище за будь-яке число в розряді Class (0,0,X,0).</code>
+        </div>
+      </section>
+
+      <!-- 4.4 Inheritance -->
+      <section id="exp-4" class="research-block">
+        <div class="research-block__header">
+          <h2>4.4. Дослідження успадкування (Inheritance)</h2>
+          <span class="badge badge--primary">Inherited vs Non-Inherited</span>
+        </div>
+        <p><strong>Завдання:</strong> Задати font-family та color для батьківського контейнера, розмістити всередині &lt;p&gt;, &lt;a&gt; та &lt;button&gt;.</p>
+        <div class="inheritance-container" style="margin: 1rem 0;">
+          <p>Параграф: Успадкував фіолетовий колір і шрифт Courier New автоматично.</p>
+          <a href="#" class="link-default">Посилання за замовчуванням (User Agent блокує color)</a><br />
+          <a href="#" class="link-inherited">Посилання з color: inherit (успадковано)</a><br /><br />
+          <button type="button" class="btn-default">Кнопка без inherit</button>
+          <button type="button" class="btn-inherited">Кнопка з font: inherit & color: inherit</button>
+        </div>
+        <div class="code-box">
+          <code><strong>Висновок:</strong> Більшість властивостей типографіки (color, font-family, line-height) успадковуються дочірніми текстовими елементами. Проте теги форми (&lt;button&gt;, &lt;input&gt;) та посилання (&lt;a&gt;) мають специфічні стилі браузера за замовчуванням (User Agent Stylesheet), які вимагають явного застосування ключового слова <code>inherit</code> для збереження єдиного стилю.</code>
+        </div>
+      </section>
+
+      <!-- 4.5 CSS Variables -->
+      <section id="exp-5" class="research-block">
+        <div class="research-block__header">
+          <h2>4.5. Дослідження CSS Custom Properties (Variables)</h2>
+          <span class="badge badge--success">Scoping</span>
+        </div>
+        <p><strong>Завдання:</strong> Оголосити змінні в <code>:root</code>, перевизначити локально всередині класу <code>.card--dark</code>.</p>
+        <div class="grid grid--2-cols" style="margin: 1rem 0;">
+          <div class="card">
+            <h4>Глобальний токен :root</h4>
+            <p>Використовує значення за замовчуванням зі світлої або активної глобальної теми.</p>
+          </div>
+          <div class="card card--dark">
+            <h4>Локальний токен .card--dark</h4>
+            <p>Перевизначено фон та колір тексту лише для цієї підгілки DOM дерева.</p>
+          </div>
+        </div>
+        <div class="code-box">
+          <code><strong>Висновок:</strong> CSS-змінні підкоряються каскаду та успадкуванню. Локальне перевизначення змінної в селекторі компонента діє на сам елемент і всіх його нащадків, дозволяючи створювати незалежні теми компонентів без створення надлишкових селекторів.</code>
+        </div>
+      </section>
+
+      <!-- 4.6 Refactoring -->
+      <section id="exp-6" class="research-block">
+        <div class="research-block__header">
+          <h2>4.6. Повторне використання стилів і компонентний рефакторинг</h2>
+          <span class="badge badge--primary">DRY Design System</span>
+        </div>
+        <p><strong>Запитання:</strong> Чому компонентний підхід кращий за написання унікальних стилів для кожного окремого елемента?</p>
+        <div class="code-box">
+          <code><strong>Переваги компонентного підходу (DRY):</strong>
+1. Зменшення розміру файлу стилів (CSS bundle size) за рахунок усунення дублювання.
+2. Легкість підтримки: зміна відступу чи радіуса кнопки в класі .btn оновлює всі кнопки у проєкті.
+3. Консистентність дизайну: єдиний візуальний ритм та передбачувана поведінка інтерфейсу.
+4. Низька специфічність: використання простих класів (.btn, .btn--primary) запобігає «війнам специфічності».</code>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="footer__text">Лабораторна робота №2 • Дослідницький звіт</p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

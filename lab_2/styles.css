@@ -1,0 +1,736 @@
+/* ==========================================================================
+   Lab 2: CSS Architecture, Box Model, Cascade, Specificity & Variables
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Custom Properties (:root Scope)
+   Centralized design tokens for colors, spacing, typography, and layout.
+   -------------------------------------------------------------------------- */
+:root {
+  /* Color Palette - Light Theme (Default) */
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-primary-light: #dbeafe;
+  --color-secondary: #6366f1;
+  --color-accent: #f59e0b;
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+
+  /* Neutral Surface & Text Colors */
+  --color-bg-base: #f8fafc;
+  --color-bg-surface: #ffffff;
+  --color-bg-subtle: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #ffffff;
+
+  /* Typography */
+  --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --line-height-tight: 1.25;
+  --line-height-base: 1.5;
+  --line-height-relaxed: 1.625;
+
+  /* Spacing Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Border Radii */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-focus: 0 0 0 3px rgba(59, 130, 246, 0.4);
+
+  /* Transitions */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.25s ease-in-out;
+}
+
+/* --------------------------------------------------------------------------
+   Dark Theme Variant (CSS Variable Overrides)
+   -------------------------------------------------------------------------- */
+[data-theme='dark'] {
+  --color-primary: #60a5fa;
+  --color-primary-hover: #3b82f6;
+  --color-primary-light: #1e3a8a;
+  --color-secondary: #818cf8;
+  --color-accent: #fbbf24;
+
+  --color-bg-base: #0f172a;
+  --color-bg-surface: #1e293b;
+  --color-bg-subtle: #334155;
+  --color-border: #334155;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #0f172a;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Universal Box Model
+   Predictable box sizing across all elements and pseudo-elements.
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. Base & Typography (Leveraging Inheritance)
+   Font styles and colors on body automatically cascade down.
+   -------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-base);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text-primary);
+  line-height: var(--line-height-tight);
+  font-weight: 700;
+}
+
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+
+p {
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   4. Layout Containers & Grid System (DRY Utility Components)
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.section {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+}
+
+.section--alt {
+  background-color: var(--color-bg-subtle);
+}
+
+.section__header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.section__title {
+  margin-bottom: var(--space-2);
+}
+
+.section__subtitle {
+  font-size: var(--font-size-lg);
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* --------------------------------------------------------------------------
+   5. Modular UI Components (.btn, .card, .badge, .code-box)
+   -------------------------------------------------------------------------- */
+
+/* Navigation Header */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition-normal);
+}
+
+.navbar__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.5rem;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.navbar__brand-badge {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-size: var(--font-size-xs);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  list-style: none;
+}
+
+.navbar__link {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  padding: var(--space-2) 0;
+  position: relative;
+}
+
+.navbar__link:hover,
+.navbar__link.is-active {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Buttons (DRY component with modifiers) */
+.btn {
+  /* Explicitly normalize button inheritance */
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast),
+    box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+/* Button Variants */
+.btn--primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.btn--primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn--secondary {
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-border);
+}
+
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn--outline:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-hover);
+}
+
+.btn--icon {
+  padding: 0.5rem;
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+
+.btn--sm {
+  padding: 0.375rem 0.75rem;
+  font-size: var(--font-size-xs);
+}
+
+.btn--lg {
+  padding: 0.875rem 1.75rem;
+  font-size: var(--font-size-base);
+}
+
+/* Cards (DRY component with customizable local CSS variables) */
+.card {
+  /* Local variables with fallbacks to root */
+  --card-bg: var(--color-bg-surface);
+  --card-border: var(--color-border);
+  --card-text: var(--color-text-primary);
+  --card-text-muted: var(--color-text-secondary);
+
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.card__header {
+  margin-bottom: var(--space-4);
+}
+
+.card__title {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-2);
+}
+
+.card__body {
+  flex-grow: 1;
+  margin-bottom: var(--space-6);
+}
+
+.card__body p {
+  color: var(--card-text-muted);
+}
+
+.card__footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Card Themes & Modifiers (Demonstrating Local Variable Scope) */
+.card--dark {
+  --card-bg: #1e1b4b;
+  --card-border: #4338ca;
+  --card-text: #f5f3ff;
+  --card-text-muted: #c7d2fe;
+}
+
+.card--accent {
+  --card-bg: #fffbeb;
+  --card-border: #fcd34d;
+  --card-text: #78350f;
+  --card-text-muted: #92400e;
+}
+
+[data-theme='dark'] .card--accent {
+  --card-bg: #451a03;
+  --card-border: #b45309;
+  --card-text: #fef3c7;
+  --card-text-muted: #fde68a;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+}
+
+.badge--primary {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  border-color: transparent;
+}
+
+.badge--success {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: var(--color-success);
+  border-color: transparent;
+}
+
+.badge--warning {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: var(--color-accent);
+  border-color: transparent;
+}
+
+/* Hero Section */
+.hero {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+  background: linear-gradient(135deg, var(--color-bg-base) 0%, var(--color-bg-subtle) 100%);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero__content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero__badge {
+  margin-bottom: var(--space-4);
+}
+
+.hero__title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.02em;
+}
+
+.hero__title-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero__lead {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-8);
+  color: var(--color-text-secondary);
+}
+
+.hero__cta-group {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   6. Research Demonstrations & Interactive Lab Styles
+   -------------------------------------------------------------------------- */
+.research-block {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  margin-bottom: var(--space-8);
+  box-shadow: var(--shadow-sm);
+}
+
+.research-block__header {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.research-demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-6);
+  margin: var(--space-6) 0;
+}
+
+.demo-panel {
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.demo-panel__title {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 4.1 Box Model Experiment Styles */
+.box-model-demo-box {
+  width: 260px;
+  height: 140px;
+  padding: 24px;
+  border: 8px solid var(--color-primary);
+  background-color: var(--color-primary-light);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.box-model-demo-box--content-box {
+  box-sizing: content-box;
+}
+
+.box-model-demo-box--border-box {
+  box-sizing: border-box;
+}
+
+.computed-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-4);
+}
+
+.computed-table th,
+.computed-table td {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.computed-table th {
+  background-color: var(--color-bg-surface);
+  font-weight: 600;
+}
+
+.computed-table tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* 4.2 Cascade Styles */
+.cascade-target {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+  border: 1px dashed var(--color-border);
+  margin-top: var(--space-4);
+  text-align: center;
+}
+
+/* Class A & Class B to test declaration order */
+.color-rule-a {
+  color: #2563eb; /* Blue */
+}
+
+.color-rule-b {
+  color: #dc2626; /* Red - defined after Blue with identical specificity (0,1,0) */
+}
+
+/* 4.3 Specificity Styles */
+div.specificity-demo-item {
+  color: #4b5563; /* Tag + Class: Specificity (0, 0, 1, 1) */
+}
+
+.spec-c1.spec-c2.spec-c3.spec-c4.spec-c5.spec-c6.spec-c7.spec-c8.spec-c9.spec-c10 {
+  color: #d97706; /* 10 Classes: Specificity (0, 0, 10, 0) */
+  font-weight: 600;
+}
+
+#specificity-target-id {
+  color: #16a34a; /* ID Selector: Specificity (0, 1, 0, 0) - Always wins over classes */
+}
+
+/* 4.4 Inheritance Demo Styles */
+.inheritance-container {
+  padding: var(--space-6);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: 'Courier New', Courier, monospace;
+  color: #9333ea; /* Purple parent color */
+}
+
+.inheritance-container p {
+  /* Inherits font-family and color naturally */
+  margin-bottom: var(--space-3);
+}
+
+.inheritance-container .link-default {
+  /* Browser UA styles override parent color unless reset */
+  display: inline-block;
+  margin-bottom: var(--space-3);
+}
+
+.inheritance-container .link-inherited {
+  color: inherit;
+  font-family: inherit;
+  text-decoration: underline dotted;
+}
+
+.inheritance-container .btn-default {
+  /* Browser UA styles button with default font & color */
+  margin-right: var(--space-3);
+}
+
+.inheritance-container .btn-inherited {
+  font-family: inherit;
+  color: inherit;
+  background: var(--color-bg-subtle);
+  border: 1px solid #9333ea;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+/* Code Snippet Box */
+.code-box {
+  background: #0f172a;
+  color: #f8fafc;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  overflow-x: auto;
+  margin-top: var(--space-3);
+  line-height: 1.45;
+}
+
+.code-box code {
+  font-family: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   7. Footer
+   -------------------------------------------------------------------------- */
+.footer {
+  margin-top: auto;
+  background-color: var(--color-bg-surface);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
+  text-align: center;
+}
+
+.footer__text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   8. Responsive Media Queries
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .navbar__container {
+    flex-direction: column;
+    height: auto;
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-4);
+    gap: var(--space-4);
+  }
+
+  .navbar__nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+
+  .hero {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+
+  .hero__title {
+    font-size: 2rem;
+  }
+
+  .research-demo-grid {
+    grid-template-columns: 1fr;
+  }
+}
