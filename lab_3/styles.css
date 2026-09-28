@@ -687,9 +687,24 @@ div.specificity-demo-item {
 }
 
 .pricing-grid {
-  align-items: stretch; /* Гарантує, що всі картки будуть однакової висоти */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Завжди 3 колонки в рядок */
+  gap: var(--space-6);
+  align-items: stretch;
 }
 
+/* Збільшуємо картки (робимо їх трохи ширшими та просторішими) */
+.card {
+  min-height: 300px; /* Робіть висоту трохи більшою */
+  padding: var(--space-6); /* Збільшені внутрішні відступи */
+}
+
+/* Адаптивність: якщо екран стає вузьким (мобільні пристрої), картки стають одна під одною */
+@media (max-width: 900px) {
+  .pricing-grid {
+    grid-template-columns: 1fr; /* Стають в один стовпчик на малих екранах */
+  }
+}
 .card--active {
   border: 2px solid var(--color-primary);
   position: relative;
@@ -798,4 +813,15 @@ div.specificity-demo-item {
   .research-demo-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.pricing-header {
+  text-align: center; /* Центрує заголовок "Наші тарифи" та підзаголовок */
+  margin-bottom: 80px; /* Створює великий простір між текстом і картками, відштовхуючи їх вниз */
+}
+
+/* Якщо текст "Наші тарифи" здається замалим, можна збільшити його так: */
+.pricing-header .title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
