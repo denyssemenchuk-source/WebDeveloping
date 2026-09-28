@@ -1,0 +1,17 @@
+{
+  "name": "lab-2",
+  "version": "1.0.0",
+  "description": "Lab 2: CSS Fundamentals, Box Model, Cascade, Specificity, Inheritance, CSS Variables, and AI-assisted Design",
+  "main": "index.html",
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "private": true,
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.10.0",
+    "globals": "^17.12.0",
+    "prettier": "3.9.6"
+  }
+}
