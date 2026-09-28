@@ -63,67 +63,60 @@
         </div>
       </section>
 
-      <!-- Section 5 Showcase: Reusable Component System (.card, .badge, .btn) -->
+      <!-- Section 5 Showcase: Практична частина (Верстка макету) -->
       <section id="components" class="section">
         <div class="container">
           <div class="section__header">
-            <span class="badge badge--success">DRY & Модульність</span>
-            <h2 class="section__title">Компонентна система інтерфейсу</h2>
+            <span class="badge badge--success">Практична частина (Розділ 5)</span>
+            <h2 class="section__title">Наші тарифи</h2>
             <p class="section__subtitle">
-              Демонстрація перевикористовуваних класів з модифікаторами та локальною областю видимості CSS-змінних.
+              Оберіть план, який найкраще підходить для ваших завдань
             </p>
           </div>
 
-          <div class="grid grid--3-cols">
-            <!-- Card 1: Default Surface -->
+          <div class="grid grid--3-cols pricing-grid">
+            <!-- Картка 1: Basic -->
             <article class="card">
-              <div class="card__header">
-                <span class="badge badge--primary">Core Concept</span>
-                <h3 class="card__title">Box-Sizing: border-box</h3>
+              <h3 class="card-tier">Basic</h3>
+              <div class="card-price">
+                <span class="price-value">$10</span><span class="price-period">/ month</span>
               </div>
-              <div class="card__body">
-                <p>
-                  Забезпечує передбачуваність розмітки: відступи (padding) та рамки (border) включаються в задані width і height, запобігаючи несподіваному виходу за межі контейнера.
-                </p>
-              </div>
-              <div class="card__footer">
-                <span class="badge">01. Layout</span>
-                <a href="#research-boxmodel" class="btn btn--outline btn--sm">Аналізувати</a>
-              </div>
+              <ul class="feature-list">
+                <li><span class="check">✓</span> 1 User</li>
+                <li><span class="check">✓</span> 5GB Storage</li>
+                <li><span class="check">✓</span> Basic Support</li>
+              </ul>
+              <button class="btn btn--outline btn--block">Select</button>
             </article>
 
-            <!-- Card 2: Local CSS Variable Scope (Dark Card) -->
-            <article class="card card--dark">
-              <div class="card__header">
-                <span class="badge badge--warning">Scoped Variables</span>
-                <h3 class="card__title">Локальні CSS Змінні</h3>
+            <!-- Картка 2: Pro (Активна) -->
+            <!-- Використовуємо ваш клас card--dark для темного фону та змінених змінних -->
+            <article class="card card--dark card--active">
+              <div class="badge badge--primary card-badge">PRO • ACTIVE</div>
+              <h3 class="card-tier">Pro</h3>
+              <div class="card-price">
+                <span class="price-value">$29</span><span class="price-period">/ month</span>
               </div>
-              <div class="card__body">
-                <p>
-                  Ця картка демонструє локальне перевизначення токенів <code>--card-bg</code> та <code>--card-text</code> без модифікації глобального <code>:root</code>.
-                </p>
-              </div>
-              <div class="card__footer">
-                <span class="badge">02. Variables</span>
-                <a href="#research-variables" class="btn btn--primary btn--sm">Дослідити scope</a>
-              </div>
+              <ul class="feature-list">
+                <li><span class="check">✓</span> 5 Users</li>
+                <li><span class="check">✓</span> 50GB Storage</li>
+                <li><span class="check">✓</span> Priority Support</li>
+              </ul>
+              <button class="btn btn--primary btn--block">Get Started</button>
             </article>
 
-            <!-- Card 3: Accent Modifier -->
-            <article class="card card--accent">
-              <div class="card__header">
-                <span class="badge badge--success">Inheritance</span>
-                <h3 class="card__title">Успадкування стилів</h3>
+            <!-- Картка 3: Enterprise -->
+            <article class="card">
+              <h3 class="card-tier">Enterprise</h3>
+              <div class="card-price">
+                <span class="price-value">$99</span><span class="price-period">/ month</span>
               </div>
-              <div class="card__body">
-                <p>
-                  Шрифти та кольори успадковуються від предків без зайвого дублювання коду, тоді як інтерактивні елементи (кнопки, посилання) контролюються явно через <code>inherit</code>.
-                </p>
-              </div>
-              <div class="card__footer">
-                <span class="badge">03. Cascade</span>
-                <a href="#research-inheritance" class="btn btn--outline btn--sm">Перевірити</a>
-              </div>
+              <ul class="feature-list">
+                <li><span class="check">✓</span> Unlimited</li>
+                <li><span class="check">✓</span> 1TB Storage</li>
+                <li><span class="check">✓</span> 24/7 Support</li>
+              </ul>
+              <button class="btn btn--outline btn--block">Contact</button>
             </article>
           </div>
         </div>
