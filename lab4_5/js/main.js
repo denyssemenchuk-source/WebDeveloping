@@ -2,27 +2,10 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* Header navigation */
+  /* Sign-up smooth navigation */
 
-  document.querySelectorAll('.nav-item').forEach(function (item) {
-    item.addEventListener('click', function () {
-      var section = document.getElementById(item.getAttribute('data-target'));
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  });
-
-  /* Sign-up flow */
-
-  function startSignup() {
-    // Pre-compute the plan comparison so the trial section renders instantly.
-    var started = Date.now();
-    var total = 0;
-    while (Date.now() - started < 300) {
-      total += Math.sqrt(total + 1);
-    }
-
+  function startSignup(e) {
+    if (e) e.preventDefault();
     var trial = document.getElementById('trial');
     if (trial) {
       trial.scrollIntoView({ behavior: 'smooth' });
@@ -43,38 +26,53 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* Trial form */
 
-  var trialSubmit = document.getElementById('trial-submit');
-  if (trialSubmit) {
-    trialSubmit.addEventListener('click', function () {
-      var form = document.getElementById('trial-form');
+  var form = document.getElementById('trial-form');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
       var email = form.querySelector('input[name="email"]');
+      var emailError = document.getElementById('email-error');
 
-      if (!email.value) {
-        email.style.boxShadow = '0 0 0 2px #fca5a5';
+      if (!email.value || !email.validity.valid) {
+        email.setAttribute('aria-invalid', 'true');
+        if (emailError) {
+          emailError.textContent = 'Please enter a valid work email address.';
+        }
+        email.focus();
         return;
       }
 
-      form.innerHTML = '<p>Thanks — check your inbox, the workspace is being created.</p>';
+      email.removeAttribute('aria-invalid');
+      if (emailError) {
+        emailError.textContent = '';
+      }
+
+      form.innerHTML = '<p class="trial__success" role="status">Thanks — check your inbox, your workspace is being created.</p>';
     });
+
+    var emailInput = form.querySelector('input[name="email"]');
+    if (emailInput) {
+      emailInput.addEventListener('input', function () {
+        if (emailInput.hasAttribute('aria-invalid')) {
+          emailInput.removeAttribute('aria-invalid');
+          var emailError = document.getElementById('email-error');
+          if (emailError) emailError.textContent = '';
+        }
+      });
+    }
   }
 
   /* FAQ accordion */
 
-  document.querySelectorAll('.faq__q').forEach(function (question) {
-    question.addEventListener('click', function () {
-      question.parentElement.classList.toggle('is-open');
+  document.querySelectorAll('.faq__q').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var item = button.closest('.faq__item');
+      var isExpanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!isExpanded));
+      if (item) {
+        item.classList.toggle('is-open', !isExpanded);
+      }
     });
-  });
-
-  /* Seasonal promo bar */
-
-  window.addEventListener('load', function () {
-    setTimeout(function () {
-      var promo = document.createElement('div');
-      promo.className = 'promo';
-      promo.innerHTML = '<strong>Autumn offer</strong> 3 months of Pro for the price of one. <a href="#pricing">See plans</a>';
-      document.body.insertBefore(promo, document.body.firstChild);
-    }, 800);
   });
 
 });

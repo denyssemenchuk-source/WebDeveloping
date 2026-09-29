@@ -1,30 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FlowTask</title>
+  <title>About FlowTask — Team, Mission &amp; Principles</title>
+  <meta name="description" content="Learn more about the team behind FlowTask, our mission to simplify project management for agile teams, and our core operating principles.">
+  <link rel="canonical" href="https://flowtask-audit.vercel.app/about.html">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://flowtask-audit.vercel.app/about.html">
+  <meta property="og:title" content="About FlowTask — Team, Mission &amp; Principles">
+  <meta property="og:description" content="Learn more about the team behind FlowTask, our mission, and our principles.">
+  <meta property="og:image" content="https://flowtask-audit.vercel.app/img/hero.jpg">
+
   <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About FlowTask",
+    "url": "https://flowtask-audit.vercel.app/about.html",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "FlowTask",
+      "url": "https://flowtask-audit.vercel.app/",
+      "logo": "https://flowtask-audit.vercel.app/img/logo.svg",
+      "description": "Project management for teams that ship every week."
+    }
+  }
+  </script>
 </head>
 <body>
 
 <header class="site-header">
   <div class="site-header__inner">
-    <img class="logo" src="img/logo.svg" alt="FlowTask" width="132" height="28">
+    <a href="index.html" aria-label="FlowTask Home">
+      <img class="logo" src="img/logo.svg" alt="FlowTask" width="132" height="28">
+    </a>
 
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-      <div class="nav-item">Product</div>
-      <div class="nav-item">Pricing</div>
-      <div class="nav-item">FAQ</div>
-      <div class="nav-item">Trial</div>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav-item" href="index.html#features">Product</a>
+      <a class="nav-item" href="index.html#pricing">Pricing</a>
+      <a class="nav-item" href="index.html#faq">FAQ</a>
+      <a class="nav-item" href="index.html#trial">Trial</a>
     </nav>
 
     <div class="site-header__actions">
       <a class="link-quiet" href="index.html">Home</a>
-      <a class="link-quiet" href="#" aria-label="Sign in">Sign in</a>
-      <button class="btn btn--primary" role="button" aria-label="Get started button" id="header-cta">Get started</button>
+      <a class="link-quiet" href="index.html#trial" aria-label="Sign in to FlowTask">Sign in</a>
+      <a class="btn btn--primary" href="index.html#trial" id="header-cta">Get started</a>
     </div>
   </div>
 </header>
@@ -68,7 +98,9 @@
   <div class="shell">
     <div class="site-footer__cols">
       <div>
-        <img src="img/logo.svg" alt="FlowTask" width="132" height="28">
+        <a href="index.html" aria-label="FlowTask Home">
+          <img class="logo" src="img/logo.svg" alt="FlowTask" width="132" height="28">
+        </a>
         <p class="muted">Project management for teams that ship every week.</p>
       </div>
 
@@ -85,17 +117,17 @@
         <div class="site-footer__title">Company</div>
         <ul>
           <li><a href="about.html">About</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="about.html">Careers</a></li>
+          <li><a href="about.html">Contact</a></li>
         </ul>
       </div>
 
       <div>
         <div class="site-footer__title">Resources</div>
         <ul>
-          <li><a href="#">Docs</a></li>
-          <li><a href="#">Changelog</a></li>
-          <li><a href="#">Status</a></li>
+          <li><a href="index.html#trial">Docs</a></li>
+          <li><a href="index.html#trial">Changelog</a></li>
+          <li><a href="index.html#trial">Status</a></li>
         </ul>
       </div>
     </div>
