@@ -142,9 +142,9 @@
    - *Підтвердження:* Трейс DevTools чітко показував "Long Task" (300 мс) під час кліку та зсув макета CLS = 0.24 під час додавання банера.
    - *Джерело:* web.dev — "Optimize Interaction to Next Paint" та "Optimize Cumulative Layout Shift".
 
-4. **Рекомендація 4 (Прийнято):** *Додати розміри `width="520" height="380"` та `fetchpriority="high"` для `hero.jpg`.*
-   - *Підтвердження:* Браузер не знав пропорцій зображення до завантаження, що призводило до зсуву блоку. Зображення є LCP-елементом.
-   - *Джерело:* web.dev — "Optimize Largest Contentful Paint".
+4. **Рекомендація 4 (Прийнято):** *Використати сучасний формат WebP, адаптивні розміри (`srcset` та `sizes`), точні пропорційні розміри `width="520" height="325"` та `fetchpriority="high"`.*
+   - *Підтвердження:* Додавання `srcset="img/hero-400.webp 400w, img/hero-800.webp 800w, img/hero-1200.webp 1200w"` разом із `sizes="(max-width: 900px) 100vw, 520px"` усуває зауваження Lighthouse "Properly size images / Use responsive images", дозволяючи мобільним пристроям завантажувати файл ~5 КБ замість 2.78 МБ, запобігаючи зсувам макета (CLS) та суттєво пришвидшуючи LCP.
+   - *Джерело:* web.dev — "Optimize Largest Contentful Paint" & "Serve responsive images".
 
 5. **Рекомендація 5 (ВІДХИЛЕНО з обґрунтуванням):**
    - *Пропозиція AI:* Додати `role="button"` та `aria-label="Get started"` до всіх посилань та кнопок, а також обгорнути всі пункти меню в `role="menuitem"`.
