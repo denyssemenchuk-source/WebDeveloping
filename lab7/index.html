@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO та Open Graph -->
+    <title>Courtly — Онлайн-сервіс бронювання спортивних майданчиків</title>
+    <meta name="description" content="Courtly — швидке бронювання майданчиків для футболу, тенісу та баскетболу. Обирайте локацію, час та грайте!">
+    <link rel="canonical" href="https://your-domain.vercel.app/">
+
+    <meta property="og:title" content="Courtly — Онлайн-сервіс бронювання спортивних майданчиків">
+    <meta property="og:description" content="Знайдіть та забронюйте ідеальний майданчик для вашої гри.">
+    <meta property="og:url" content="https://your-domain.vercel.app/">
+    <meta property="og:image" content="https://your-domain.vercel.app/img/og-image.jpg">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+    <!-- Шрифти -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap&subset=cyrillic" rel="stylesheet">
+
+    <!-- CSS та JS -->
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="container header__inner">
+        <a href="/" class="logo">
+            <img src="img/logo-mark.svg" alt="" width="40" height="40" aria-hidden="true">
+            <span>Courtly</span>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button type="button" class="menu-btn" aria-controls="main-nav" aria-expanded="false">
+            <span class="visually-hidden">Відкрити меню</span>
+            <span class="menu-btn__line"></span>
+            <span class="menu-btn__line"></span>
+            <span class="menu-btn__line"></span>
+        </button>
+
+        <!-- Navigation -->
+        <nav id="main-nav" class="nav">
+            <ul class="nav__list">
+                <li><a href="#venues" class="nav__link">Майданчики</a></li>
+                <li><a href="#how" class="nav__link">Як це працює</a></li>
+                <li><a href="#about" class="nav__link">Про сервіс</a></li>
+                <li><a href="#contacts" class="nav__link">Контакти</a></li>
+            </ul>
+        </nav>
+
+        <a href="#venues" class="btn btn--primary header__cta">Забронювати</a>
+    </div>
+</header>
+
+<main>
+    <!-- HERO -->
+    <section id="search" class="hero">
+        <div class="container hero__inner">
+            <div class="hero__content">
+                <h1>Знайдіть майданчик для вашої найкращої гри</h1>
+                <p class="hero__lead">Обирайте серед сотень локацій у вашому місті та бронюйте онлайн без зайвих дзвінків.</p>
+
+                <form action="#venues" class="search-form">
+                    <div class="form-group">
+                        <label for="city">Місто</label>
+                        <select id="city" name="city" required>
+                            <option value="">Оберіть місто</option>
+                            <option value="kyiv">Київ</option>
+                            <option value="lviv">Львів</option>
+                            <option value="odesa">Одеса</option>
+                            <option value="kharkiv">Харків</option>
+                            <option value="dnipro">Дніпро</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sport">Вид спорту</label>
+                        <select id="sport" name="sport" required>
+                            <option value="">Будь-який</option>
+                            <option value="football">Футбол</option>
+                            <option value="tennis">Теніс</option>
+                            <option value="basketball">Баскетбол</option>
+                            <option value="volleyball">Волейбол</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Дата</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary">Знайти</button>
+                </form>
+            </div>
+
+            <picture class="hero__image-wrapper">
+                <source media="(min-width: 1024px)" srcset="img/hero-1200.webp">
+                <img src="img/hero-800.webp" alt="Люди грають на спортивному майданчику" class="hero__image" width="1200" height="900" fetchpriority="high">
+            </picture>
+        </div>
+    </section>
+
+    <!-- VENUES -->
+    <section id="venues" class="section venues">
+        <div class="container">
+            <div class="section__head">
+                <h2>Популярні майданчики</h2>
+                <p class="lead">Топ локацій, які найчастіше обирають наші користувачі цього тижня.</p>
+            </div>
+
+            <div class="venues-grid">
+                <!-- Featured Card -->
+                <article class="card card--featured">
+                    <div class="card__image-wrapper">
+                        <span class="badge">Вибір тижня</span>
+                        <img src="img/arena-sport.webp" alt="Футбольне поле Arena Sport" loading="lazy" width="900" height="1200">
+                    </div>
+                    <div class="card__body">
+                        <div class="card__header">
+                            <span class="chip">Футбол</span>
+                            <span class="rating">★ 4.8 <span class="rating-muted">(124 відгуки)</span></span>
+                        </div>
+                        <h3 class="h2-size">Arena Sport</h3>
+                        <p class="lead">Найкраще штучне покриття останнього покоління в центрі міста. Професійне освітлення та теплі роздягальні.</p>
+
+                        <ul class="features-list desktop-only">
+                            <li><span class="check">✓</span> Душові кабіни</li>
+                            <li><span class="check">✓</span> Безкоштовний паркінг</li>
+                            <li><span class="check">✓</span> Трибуни на 50 місць</li>
+                        </ul>
+
+                        <div class="slots desktop-only">
+                            <p class="slots__title">Вільні слоти сьогодні:</p>
+                            <div class="slots__list">
+                                <span>18:00</span>
+                                <span>19:30</span>
+                                <span>21:00</span>
+                            </div>
+                        </div>
+
+                        <div class="card__footer">
+                            <div class="price-wrap">
+                                <span class="price">800 грн</span><span class="price-muted">/год</span>
+                            </div>
+                            <button type="button" class="btn btn--primary">
+                                Забронювати <span class="visually-hidden">Arena Sport</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Regular Card 1 -->
+                <article class="card">
+                    <img src="img/tennis-point.webp" alt="Тенісний корт Tennis Point" loading="lazy" width="800" height="600">
+                    <div class="card__body">
+                        <div class="card__header">
+                            <span class="chip">Теніс</span>
+                            <span class="rating">★ 4.9 <span class="rating-muted">(98 відгуків)</span></span>
+                        </div>
+                        <h3>Tennis Point</h3>
+                        <p>Критий корт із ґрунтовим покриттям преміум класу.</p>
+                        <div class="card__footer">
+                            <div class="price-wrap">
+                                <span class="price">500 грн</span><span class="price-muted">/год</span>
+                            </div>
+                            <button type="button" class="btn btn--outline">
+                                Забронювати <span class="visually-hidden">Tennis Point</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Regular Card 2 -->
+                <article class="card">
+                    <img src="img/active-hall.webp" alt="Зал Active Hall" loading="lazy" width="800" height="600">
+                    <div class="card__body">
+                        <div class="card__header">
+                            <span class="chip">Баскетбол</span>
+                            <span class="rating">★ 4.7 <span class="rating-muted">(65 відгуків)</span></span>
+                        </div>
+                        <h3>Active Hall</h3>
+                        <p>Просторий критий зал зі спортивним паркетом.</p>
+                        <div class="card__footer">
+                            <div class="price-wrap">
+                                <span class="price">600 грн</span><span class="price-muted">/год</span>
+                            </div>
+                            <button type="button" class="btn btn--outline">
+                                Забронювати <span class="visually-hidden">Active Hall</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Regular Card 3 -->
+                <article class="card">
+                    <img src="img/riverside-court.webp" alt="Корт Riverside" loading="lazy" width="800" height="600">
+                    <div class="card__body">
+                        <div class="card__header">
+                            <span class="chip">Теніс</span>
+                            <span class="rating">★ 4.6 <span class="rating-muted">(42 відгуки)</span></span>
+                        </div>
+                        <h3>Riverside Court</h3>
+                        <p>Відкритий хард-корт поруч із парковою зоною.</p>
+                        <div class="card__footer">
+                            <div class="price-wrap">
+                                <span class="price">400 грн</span><span class="price-muted">/год</span>
+                            </div>
+                            <button type="button" class="btn btn--outline">
+                                Забронювати <span class="visually-hidden">Riverside Court</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Regular Card 4 -->
+                <article class="card">
+                    <img src="img/city-football.webp" alt="Поле City Football" loading="lazy" width="800" height="600">
+                    <div class="card__body">
+                        <div class="card__header">
+                            <span class="chip">Футбол</span>
+                            <span class="rating">★ 4.5 <span class="rating-muted">(89 відгуків)</span></span>
+                        </div>
+                        <h3>City Football</h3>
+                        <p>Поле для міні-футболу (5х5) в спальному районі.</p>
+                        <div class="card__footer">
+                            <div class="price-wrap">
+                                <span class="price">450 грн</span><span class="price-muted">/год</span>
+                            </div>
+                            <button type="button" class="btn btn--outline">
+                                Забронювати <span class="visually-hidden">City Football</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Regular Card 5 -->
+                <article class="card">
+                    <img src="img/smash-club.webp" alt="Клуб Smash Club" loading="lazy" width="800" height="600">
+                    <div class="card__body">
+                        <div class="card__header">
+                            <span class="chip">Волейбол</span>
+                            <span class="rating">★ 4.8 <span class="rating-muted">(55 відгуків)</span></span>
+                        </div>
+                        <h3>Smash Club</h3>
+                        <p>Зал із професійною сіткою та високою стелею.</p>
+                        <div class="card__footer">
+                            <div class="price-wrap">
+                                <span class="price">550 грн</span><span class="price-muted">/год</span>
+                            </div>
+                            <button type="button" class="btn btn--outline">
+                                Забронювати <span class="visually-hidden">Smash Club</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section section--alt">
+        <div class="container">
+            <div class="section__head">
+                <h2>Як це працює</h2>
+                <p class="lead">Всього три прості кроки від бажання зіграти до виходу на поле.</p>
+            </div>
+            <div class="steps-grid">
+                <article class="step">
+                    <div class="step__num">01</div>
+                    <h3>Оберіть майданчик</h3>
+                    <p class="muted">Скористайтеся зручним пошуком за містом та видом спорту, щоб знайти найкраще місце.</p>
+                </article>
+                <article class="step">
+                    <div class="step__num">02</div>
+                    <h3>Виберіть час</h3>
+                    <p class="muted">Перегляньте розклад вільних годин у реальному часі та забронюйте потрібний слот.</p>
+                </article>
+                <article class="step">
+                    <div class="step__num">03</div>
+                    <h3>Оплатіть бронь</h3>
+                    <p class="muted">Сплатіть онлайн карткою. Власник миттєво отримає підтвердження вашого бронювання.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about">
+        <div class="container about__inner">
+            <div class="about__content">
+                <div class="section__head">
+                    <h2>Про сервіс Courtly</h2>
+                    <p class="lead">Ми створюємо єдину екосистему для спортсменів-аматорів та власників локацій.</p>
+                </div>
+                <div class="advantages">
+                    <div class="advantage">
+                        <div class="advantage__icon"><span class="check">✓</span></div>
+                        <div class="advantage__text">
+                            <div class="advantage__title">Швидкість</div>
+                            <p class="muted">Бронювання забирає не більше хвилини часу.</p>
+                        </div>
+                    </div>
+                    <div class="advantage">
+                        <div class="advantage__icon"><span class="check">✓</span></div>
+                        <div class="advantage__text">
+                            <div class="advantage__title">Надійність</div>
+                            <p class="muted">100% гарантія закріплення часу за вами після оплати.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="img/about.webp" alt="Спортсмен відпочиває після гри" class="about__img" loading="lazy" width="960" height="1200">
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section">
+        <div class="container">
+            <div class="final-cta dark-section">
+                <h2>Готові до гри?</h2>
+                <p class="lead">Знайти майданчик та зібрати команду ніколи не було так просто.</p>
+                <a href="#search" class="btn btn--accent btn--lg">Знайти майданчик</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer id="contacts" class="footer dark-section">
+    <div class="container footer__inner">
+
+        <div class="footer__brand">
+            <a href="/" class="logo">
+                <img src="img/logo-mark.svg" alt="" width="40" height="40" aria-hidden="true">
+                <span>Courtly</span>
+            </a>
+            <p class="muted">Зручний сервіс пошуку та бронювання спортивних локацій у вашому місті.</p>
+        </div>
+
+        <div class="footer__col">
+            <div class="footer__title">Навігація</div>
+            <ul class="footer__list">
+                <li><a href="#venues">Майданчики</a></li>
+                <li><a href="#how">Як це працює</a></li>
+                <li><a href="#about">Про сервіс</a></li>
+            </ul>
+        </div>
+
+        <div class="footer__col">
+            <div class="footer__title">Документи</div>
+            <ul class="footer__list">
+                <li><a href="#">Публічна оферта</a></li>
+                <li><a href="#">Правила сервісу</a></li>
+                <li><a href="#">Політика конфіденційності</a></li>
+            </ul>
+        </div>
+
+        <div class="footer__col">
+            <div class="footer__title">Контакти</div>
+            <ul class="footer__list">
+                <li><a href="mailto:hello@courtly.ua">hello@courtly.ua</a></li>
+                <li><a href="tel:+380441234567">+38 044 123 45 67</a></li>
+            </ul>
+            <div class="socials">
+                <a href="#" class="social-link" aria-label="Facebook">Fb</a>
+                <a href="#" class="social-link" aria-label="Instagram">Ig</a>
+                <a href="#" class="social-link" aria-label="Telegram">Tg</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="footer__copyright">
+            <p>© 2026 Courtly. Навчальний проєкт.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
