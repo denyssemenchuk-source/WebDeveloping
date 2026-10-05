@@ -25,8 +25,12 @@ a {
     color: inherit;
 }
 
-ul {
+ul, ol {
     list-style: none;
+}
+
+p {
+    margin: 0;
 }
 
 .visually-hidden {
@@ -44,6 +48,7 @@ ul {
 h1, h2, h3 {
     font-weight: 800; /* --font-weight-bold з ТЗ */
     line-height: 1.15;
+    margin: 0;
 }
 
 h1 {
@@ -101,18 +106,20 @@ h3 {
 
 /* Фокус для Accessibility */
 :focus-visible {
-    outline: 3px solid var(--color-focus, var(--color-primary));
+    outline: 3px solid var(--color-focus);
     outline-offset: 3px;
     border-radius: 4px;
 }
 
 .dark-section {
-    --color-focus: var(--color-accent); /* Перевизначення для темного фону */
+    --color-focus: var(--color-accent);
     background-color: var(--color-dark);
     color: var(--color-on-dark-muted);
 }
 
-.dark-section h2, .dark-section .logo span, .dark-section .footer__title {
+.dark-section h2,
+.dark-section .logo span,
+.dark-section .footer__title {
     color: var(--color-on-dark);
 }
 
@@ -189,14 +196,14 @@ h3 {
 }
 
 .nav {
-    display: none; /* Mobile first hidden */
+    display: none;
     position: absolute;
     top: 72px;
     left: 0;
     width: 100%;
     background: var(--color-surface);
     padding: 24px 16px 32px;
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); /* --shadow-md */
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
 }
 
 .nav.is-open {
@@ -217,7 +224,7 @@ h3 {
 }
 
 .header__cta {
-    display: none; /* Hide on mobile */
+    display: none;
 }
 
 .menu-btn {
@@ -280,6 +287,7 @@ h3 {
     opacity: 0.18;
     filter: blur(80px);
     z-index: 0;
+    pointer-events: none;
 }
 
 .hero__inner {
@@ -293,6 +301,7 @@ h3 {
 .hero__content {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 24px;
 }
 
@@ -300,24 +309,36 @@ h3 {
     max-width: 34rem;
 }
 
+.hero__image-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
 .hero__image {
     width: 100%;
     border-radius: 20px;
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-md);
     aspect-ratio: 16/9;
     object-fit: cover;
 }
 
 .search-form {
+    position: relative;
+    z-index: 2;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 24px;
+    border-radius: var(--radius-lg, 20px);
+    padding: var(--space-lg, 24px);
+    box-shadow: var(--shadow-md);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md, 16px);
+    margin-top: var(--space-2xl, 48px);
+    align-items: end;
+}
+
+.search-form .btn {
+    width: 100%;
 }
 
 .form-group {
@@ -339,10 +360,17 @@ h3 {
     border-radius: 8px;
     font-family: inherit;
     font-size: 16px;
+    width: 100%;
 }
 
 .form-group input:hover, .form-group select:hover {
     border-color: var(--color-text-muted);
+}
+
+@media (min-width: 640px) {
+    .search-form {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -353,13 +381,15 @@ h3 {
         align-items: center;
     }
     .hero__image { aspect-ratio: 4/3; }
+
     .search-form {
-        flex-direction: row;
-        align-items: flex-end;
-        padding: 32px 24px;
+        grid-template-columns: 1fr 1fr 1fr auto;
+        padding: var(--space-xl, 32px) var(--space-lg, 24px);
     }
-    .search-form .form-group { flex: 1; }
-    .search-form .btn { min-width: 160px; }
+    .search-form .btn {
+        min-width: 160px;
+        width: auto;
+    }
 }
 
 /* ================= CARDS GRID ================= */
@@ -373,7 +403,7 @@ h3 {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: 20px;
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05); /* --shadow-sm */
+    box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -401,6 +431,7 @@ h3 {
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.06em;
+    z-index: 2;
 }
 
 .card__body {
@@ -452,20 +483,41 @@ h3 {
 @media (min-width: 1024px) {
     .venues-grid { grid-template-columns: repeat(3, 1fr); }
 
-    /* Desktop Featured Card */
+    /* Ідеальне центрування Featured Card на CSS Grid */
     .card--featured {
         grid-column: span 2;
         grid-row: span 2;
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: 1.15fr 1fr;
+        gap: 0;
     }
-    .card--featured .card__image-wrapper { flex: 1.15; }
-    .card--featured img { height: 100%; aspect-ratio: auto; }
+
+    .card--featured .card__image-wrapper {
+        height: 100%;
+        width: 100%;
+    }
+
+    .card--featured img {
+        height: 100%;
+        width: 100%;
+        aspect-ratio: auto;
+        object-fit: cover;
+        border-radius: 20px 0 0 20px; /* Зрізаємо кути, щоб фото виглядало ідеально */
+    }
+
     .card--featured .card__body {
-        flex: 1;
-        padding: 48px 32px;
-        justify-content: center;
-        gap: 24px;
+        padding: var(--space-2xl) var(--space-xl);
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Центруємо весь текст по вертикалі */
+        gap: var(--space-lg);
     }
+
+    /* ЦЕ ПРАВИЛО ЛАГОДИТЬ ВЕРТИКАЛЬНЕ ЦЕНТРУВАННЯ (знімає auto margin з футера картки) */
+    .card--featured .card__footer {
+        margin-top: 0;
+    }
+
     .desktop-only { display: block; }
 
     .features-list { font-size: 14px; display: flex; flex-direction: column; gap: 4px; }
@@ -575,15 +627,17 @@ h3 {
 
 /* ================= FINAL CTA ================= */
 .final-cta {
-    border-radius: 20px;
-    padding: 64px 24px;
+    background-color: var(--color-dark);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3xl) var(--space-lg);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 24px;
+    gap: var(--space-lg);
     position: relative;
     overflow: hidden;
+    margin-bottom: var(--space-section);
 }
 
 .final-cta::after {
@@ -596,9 +650,13 @@ h3 {
     background: var(--color-accent);
     opacity: 0.16;
     filter: blur(60px);
+    pointer-events: none;
 }
 
-.text-center { text-align: center; }
+.final-cta p.lead {
+    max-width: 32rem;
+    color: var(--color-on-dark-muted);
+}
 
 /* ================= FOOTER ================= */
 .footer {
@@ -614,6 +672,13 @@ h3 {
 
 .footer__brand { max-width: 22rem; }
 .footer__brand .logo { margin-bottom: 16px; }
+
+/* Окремий клас для тексту під логотипом у футері, щоб відновити правильний шрифт */
+.brand-desc {
+    font-size: var(--font-size-small);
+    color: var(--color-on-dark-muted);
+    margin-top: 16px;
+}
 
 .footer__title {
     font-size: 16px;
@@ -641,15 +706,20 @@ h3 {
 
 .social-link {
     padding: 4px 12px;
-    border: 1px solid rgba(180, 199, 187, 0.35); /* --color-on-dark-muted 35% */
+    border: 1px solid rgba(180, 199, 187, 0.35); /* 35% opacity */
     border-radius: 99px;
 }
 
+/* Вирівняно Copyright по лівому краю */
 .footer__copyright {
     border-top: 1px solid rgba(180, 199, 187, 0.2);
     padding: 24px 0;
-    text-align: center;
-    font-size: 14px;
+    text-align: left;
+}
+
+.footer__copyright p {
+    font-size: var(--font-size-small);
+    color: var(--color-on-dark-muted);
 }
 
 @media (min-width: 640px) {

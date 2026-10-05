@@ -28,7 +28,7 @@
   --color-on-dark-muted: #b4c7bb;
 
   --color-rating: #a15c00;           /* зірка рейтингу */
-  --color-focus: #0b6e4f;            /* на темних секціях перевизначити на --color-accent */
+  --color-focus: #0b6e4f;          /* на темних секціях перевизначити на --color-accent */
 
   /* ---------- Typography ---------- */
   --font-family-base: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
