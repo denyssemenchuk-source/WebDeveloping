@@ -46,33 +46,33 @@ p {
 
 /* ================= TYPOGRAPHY ================= */
 h1, h2, h3 {
-    font-weight: 800; /* --font-weight-bold з ТЗ */
-    line-height: 1.15;
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
     margin: 0;
 }
 
 h1 {
-    font-size: clamp(32px, 5vw, 56px); /* Fluid */
+    font-size: var(--font-size-h1);
     letter-spacing: -0.02em;
 }
 
 h2 {
-    font-size: clamp(26px, 4vw, 40px);
+    font-size: var(--font-size-h2);
     letter-spacing: -0.02em;
 }
 
 h3 {
-    font-size: clamp(19px, 2.5vw, 22px);
+    font-size: var(--font-size-h3);
     letter-spacing: -0.01em;
 }
 
 .h2-size {
-    font-size: clamp(26px, 4vw, 40px);
+    font-size: var(--font-size-h2);
     letter-spacing: -0.02em;
 }
 
 .lead {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: var(--font-size-lead);
     color: var(--color-text-muted);
 }
 
@@ -83,13 +83,14 @@ h3 {
 /* ================= LAYOUT & UTILS ================= */
 .container {
     width: 100%;
-    max-width: var(--container-max, 1200px);
+    /* 1200px + 2*padding для ідеального збігу з тестами */
+    max-width: calc(var(--container-max) + (var(--container-gutter) * 2));
     margin: 0 auto;
-    padding: 0 clamp(16px, 3vw, 32px); /* --container-gutter */
+    padding: 0 var(--container-gutter);
 }
 
 .section {
-    padding: clamp(56px, 6vw, 96px) 0; /* --space-section */
+    padding: var(--space-section) 0;
 }
 
 .section--alt {
@@ -97,11 +98,11 @@ h3 {
 }
 
 .section__head {
-    margin-bottom: var(--space-2xl, 48px);
+    margin-bottom: var(--space-2xl);
 }
 
 .section__head h2 {
-    margin-bottom: var(--space-sm, 12px);
+    margin-bottom: var(--space-sm);
 }
 
 /* Фокус для Accessibility */
@@ -128,12 +129,12 @@ h3 {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    height: 48px; /* --control-height */
-    padding: 0 24px;
+    height: var(--control-height);
+    padding: 0 var(--space-lg);
     font-family: inherit;
     font-size: var(--font-size-base);
-    font-weight: 600;
-    border-radius: 12px;
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-md);
     border: 2px solid transparent;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -141,8 +142,8 @@ h3 {
 
 .btn--lg {
     height: 56px;
-    padding: 0 32px;
-    font-size: 17px;
+    padding: 0 var(--space-xl);
+    font-size: 1.0625rem;
 }
 
 .btn--primary {
@@ -172,7 +173,7 @@ h3 {
 
 /* ================= HEADER ================= */
 .header {
-    height: 72px;
+    height: var(--header-height);
     background-color: var(--color-surface);
     border-bottom: 1px solid var(--color-border);
     display: flex;
@@ -190,20 +191,20 @@ h3 {
 .logo {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 22px;
-    font-weight: 800;
+    gap: var(--space-xs);
+    font-size: 1.375rem;
+    font-weight: var(--font-weight-bold);
 }
 
 .nav {
     display: none;
     position: absolute;
-    top: 72px;
+    top: var(--header-height);
     left: 0;
     width: 100%;
     background: var(--color-surface);
-    padding: 24px 16px 32px;
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    padding: var(--space-lg) 16px var(--space-xl);
+    box-shadow: var(--shadow-md);
 }
 
 .nav.is-open {
@@ -217,9 +218,9 @@ h3 {
 
 .nav__link {
     display: block;
-    font-size: 17px;
-    font-weight: 600;
-    padding: 12px 0;
+    font-size: 1.0625rem;
+    font-weight: var(--font-weight-semibold);
+    padding: var(--space-sm) 0;
     border-bottom: 1px solid var(--color-border);
 }
 
@@ -229,10 +230,10 @@ h3 {
 
 .menu-btn {
     height: 44px;
-    padding: 0 16px;
+    padding: 0 var(--space-md);
     background: transparent;
     border: 1px solid var(--color-border);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -258,19 +259,19 @@ h3 {
     }
     .nav__list {
         flex-direction: row;
-        gap: 32px;
+        gap: var(--space-xl);
     }
     .nav__link {
-        font-size: 16px;
+        font-size: var(--font-size-base);
         border-bottom: none;
     }
     .nav__link:hover { color: var(--color-primary); }
-    .header__cta { display: inline-flex; margin-left: 48px; }
+    .header__cta { display: inline-flex; margin-left: var(--space-2xl); }
 }
 
 /* ================= HERO & FORM ================= */
 .hero {
-    padding-top: 48px;
+    padding-top: var(--space-2xl);
     background-color: var(--color-background);
     position: relative;
     overflow: hidden;
@@ -295,17 +296,19 @@ h3 {
     z-index: 1;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: var(--space-2xl);
 }
 
 .hero__content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px;
+    gap: var(--space-lg);
 }
 
 .hero__lead {
+    font-size: var(--font-size-lead);
+    color: var(--color-text-muted);
     max-width: 34rem;
 }
 
@@ -316,24 +319,25 @@ h3 {
 
 .hero__image {
     width: 100%;
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     aspect-ratio: 16/9;
     object-fit: cover;
 }
 
+/* Форма пошуку (CSS Grid) */
 .search-form {
     position: relative;
     z-index: 2;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg, 20px);
-    padding: var(--space-lg, 24px);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
     box-shadow: var(--shadow-md);
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-md, 16px);
-    margin-top: var(--space-2xl, 48px);
+    gap: var(--space-md);
+    margin-top: var(--space-2xl);
     align-items: end;
 }
 
@@ -348,18 +352,18 @@ h3 {
 }
 
 .form-group label {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-semibold);
 }
 
 .form-group input, .form-group select {
-    height: 48px;
-    padding: 0 12px;
+    height: var(--control-height);
+    padding: 0 var(--space-sm);
     background: var(--color-background);
     border: 1px solid var(--color-border);
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     font-family: inherit;
-    font-size: 16px;
+    font-size: var(--font-size-base);
     width: 100%;
 }
 
@@ -374,17 +378,17 @@ h3 {
 }
 
 @media (min-width: 1024px) {
-    .hero { padding-top: 64px; }
+    .hero { padding-top: var(--space-3xl); }
     .hero__inner {
         grid-template-columns: 1fr 1fr;
-        gap: 64px;
+        gap: var(--space-3xl);
         align-items: center;
     }
     .hero__image { aspect-ratio: 4/3; }
 
     .search-form {
         grid-template-columns: 1fr 1fr 1fr auto;
-        padding: var(--space-xl, 32px) var(--space-lg, 24px);
+        padding: var(--space-xl) var(--space-lg);
     }
     .search-form .btn {
         min-width: 160px;
@@ -396,13 +400,13 @@ h3 {
 .venues-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: var(--space-lg);
 }
 
 .card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
@@ -421,24 +425,24 @@ h3 {
 
 .badge {
     position: absolute;
-    top: 16px;
-    left: 16px;
+    top: var(--space-md);
+    left: var(--space-md);
     padding: 4px 12px;
-    border-radius: 99px;
+    border-radius: var(--radius-pill);
     background: var(--color-accent);
     color: var(--color-dark);
-    font-size: 13px;
-    font-weight: 800;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     z-index: 2;
 }
 
 .card__body {
-    padding: 24px;
+    padding: var(--space-lg);
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--space-sm);
     flex-grow: 1;
 }
 
@@ -452,27 +456,27 @@ h3 {
     padding: 4px 12px;
     background: var(--color-primary-soft);
     color: var(--color-primary);
-    border-radius: 99px;
-    font-size: 13px;
-    font-weight: 600;
+    border-radius: var(--radius-pill);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
 }
 
-.rating { font-size: 14px; font-weight: 600; color: var(--color-rating); }
-.rating-muted { color: var(--color-text-muted); font-weight: 400; }
+.rating { font-size: var(--font-size-small); font-weight: var(--font-weight-semibold); color: var(--color-rating); }
+.rating-muted { color: var(--color-text-muted); font-weight: var(--font-weight-regular); }
 
 .card__footer {
     margin-top: auto;
-    padding-top: 16px;
+    padding-top: var(--space-md);
     border-top: 1px solid var(--color-border);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    gap: 16px;
+    gap: var(--space-md);
 }
 
-.price { font-size: 20px; font-weight: 800; }
-.price-muted { font-size: 14px; color: var(--color-text-muted); }
+.price { font-size: 1.25rem; font-weight: var(--font-weight-bold); color: var(--color-text); }
+.price-muted { font-size: var(--font-size-small); color: var(--color-text-muted); }
 
 .desktop-only { display: none; }
 
@@ -502,7 +506,7 @@ h3 {
         width: 100%;
         aspect-ratio: auto;
         object-fit: cover;
-        border-radius: 20px 0 0 20px; /* Зрізаємо кути, щоб фото виглядало ідеально */
+        border-radius: var(--radius-lg) 0 0 var(--radius-lg);
     }
 
     .card--featured .card__body {
@@ -513,24 +517,24 @@ h3 {
         gap: var(--space-lg);
     }
 
-    /* ЦЕ ПРАВИЛО ЛАГОДИТЬ ВЕРТИКАЛЬНЕ ЦЕНТРУВАННЯ (знімає auto margin з футера картки) */
+    /* Знімає auto margin з футера картки, щоб усе центрувалось */
     .card--featured .card__footer {
         margin-top: 0;
     }
 
     .desktop-only { display: block; }
 
-    .features-list { font-size: 14px; display: flex; flex-direction: column; gap: 4px; }
-    .check { color: var(--color-primary); font-weight: 800; margin-right: 8px; }
+    .features-list { font-size: var(--font-size-small); display: flex; flex-direction: column; gap: 4px; }
+    .check { color: var(--color-primary); font-weight: var(--font-weight-bold); margin-right: 8px; }
 
-    .slots__title { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
-    .slots__list { display: flex; gap: 8px; }
+    .slots__title { font-size: var(--font-size-small); font-weight: var(--font-weight-semibold); margin-bottom: 8px; }
+    .slots__list { display: flex; gap: var(--space-xs); }
     .slots__list span {
         padding: 4px 12px;
         border: 1px solid var(--color-border);
-        border-radius: 4px;
-        font-size: 14px;
-        font-weight: 600;
+        border-radius: var(--radius-sm);
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-semibold);
     }
 }
 
@@ -538,17 +542,17 @@ h3 {
 .steps-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: var(--space-lg);
 }
 
 .step {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: 20px;
-    padding: 32px;
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--space-sm);
 }
 
 .step__num {
@@ -556,13 +560,13 @@ h3 {
     height: 56px;
     background: var(--color-dark);
     color: var(--color-accent);
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
-    font-weight: 800;
-    margin-bottom: 8px;
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-xs);
 }
 
 @media (min-width: 1024px) {
@@ -573,24 +577,24 @@ h3 {
 .about__inner {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: var(--space-2xl);
 }
 
 .about__content {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: var(--space-lg);
 }
 
 .advantages {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: var(--space-md);
 }
 
 .advantage {
     display: flex;
-    gap: 16px;
+    gap: var(--space-md);
 }
 
 .advantage__icon {
@@ -605,22 +609,25 @@ h3 {
 }
 
 .advantage__title {
-    font-size: 17px;
-    font-weight: 800;
-    margin-bottom: 4px;
+    font-size: 1.0625rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-2xs);
+}
+.advantage__text p.muted {
+    font-size: var(--font-size-small);
 }
 
 .about__img {
     width: 100%;
     aspect-ratio: 4/5;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
 }
 
 @media (min-width: 768px) {
     .about__inner {
         grid-template-columns: 1.1fr 1fr;
-        gap: 64px;
+        gap: var(--space-3xl);
         align-items: center;
     }
 }
@@ -637,7 +644,6 @@ h3 {
     gap: var(--space-lg);
     position: relative;
     overflow: hidden;
-    margin-bottom: var(--space-section);
 }
 
 .final-cta::after {
@@ -660,36 +666,41 @@ h3 {
 
 /* ================= FOOTER ================= */
 .footer {
-    padding-top: 64px;
+    padding-top: var(--space-3xl);
+    font-size: var(--font-size-small);
 }
 
 .footer__inner {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 32px;
-    padding-bottom: 48px;
+    gap: var(--space-xl);
+    padding-bottom: var(--space-2xl);
 }
 
 .footer__brand { max-width: 22rem; }
-.footer__brand .logo { margin-bottom: 16px; }
+.footer__brand .logo { margin-bottom: var(--space-md); }
 
-/* Окремий клас для тексту під логотипом у футері, щоб відновити правильний шрифт */
+/* Змінено колір та шрифт відповідно до макету */
 .brand-desc {
     font-size: var(--font-size-small);
     color: var(--color-on-dark-muted);
-    margin-top: 16px;
+    margin-top: var(--space-md);
 }
 
 .footer__title {
-    font-size: 16px;
-    font-weight: 800;
-    margin-bottom: 12px;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-sm);
 }
 
 .footer__list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--space-xs);
+}
+
+.footer__list a {
+    color: var(--color-on-dark-muted);
 }
 
 .footer__list a:hover {
@@ -700,20 +711,20 @@ h3 {
 .socials {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 16px;
+    gap: var(--space-xs);
 }
 
 .social-link {
     padding: 4px 12px;
     border: 1px solid rgba(180, 199, 187, 0.35); /* 35% opacity */
-    border-radius: 99px;
+    border-radius: var(--radius-pill);
+    color: var(--color-on-dark-muted);
 }
 
-/* Вирівняно Copyright по лівому краю */
+/* Ідеальне вирівнювання Copyright по лівому краю */
 .footer__copyright {
     border-top: 1px solid rgba(180, 199, 187, 0.2);
-    padding: 24px 0;
+    padding: var(--space-lg) 0;
     text-align: left;
 }
 

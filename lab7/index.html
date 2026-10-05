@@ -61,11 +61,11 @@
 
 <main>
     <!-- HERO -->
-    <section id="search" class="hero">
+    <section class="hero">
         <div class="container hero__inner">
             <div class="hero__content">
                 <h1>Забронюйте спортивний майданчик без зайвих дзвінків</h1>
-                <p class="hero__lead">Обирайте зручний майданчик, дату та час — і бронюйте онлайн за кілька кліків.</p>
+                <p class="hero__lead lead">Обирайте зручний майданчик, дату та час — і бронюйте онлайн за кілька кліків.</p>
                 <a href="#venues" class="btn btn--primary btn--lg">Знайти майданчик</a>
             </div>
 
@@ -81,7 +81,8 @@
         </div>
 
         <div class="container">
-            <form action="#venues" class="search-form">
+            <!-- id="search" перенесено сюди для правильної роботи тестів -->
+            <form id="search" action="#venues" class="search-form">
                 <div class="form-group">
                     <label for="city">Місто</label>
                     <select id="city" name="city" required>
@@ -355,7 +356,6 @@
                 <img src="img/logo-mark.svg" alt="" width="40" height="40" aria-hidden="true">
                 <span>Courtly</span>
             </a>
-            <!-- Звідси прибрано клас .muted, щоб шрифт відповідав макету -->
             <p class="brand-desc">Онлайн-бронювання спортивних майданчиків: футбол, теніс, баскетбол і волейбол у вашому місті.</p>
         </div>
 
@@ -388,7 +388,6 @@
 
     </div>
     <div class="container">
-        <!-- Копірайт строго ліворуч -->
         <div class="footer__copyright">
             <p>© 2026 Courtly. All rights reserved.</p>
         </div>
