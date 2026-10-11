@@ -1,0 +1,14 @@
+/* Challenge 4. Subgrid: aligned cards.
+   Спочатку — рішення без subgrid, потім — із subgrid.
+   Ваш CSS — тут. */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+.card {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    gap: 0; /* Прибираємо зайвий відступ всередині картки */
+}

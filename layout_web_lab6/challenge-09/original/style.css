@@ -1,0 +1,35 @@
+/* Згенерований АІ код з помилками (фіксована ширина, зайві медіа-запити) */
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+}
+.header {
+    width: 100%;
+    padding: 20px;
+    background: var(--surface);
+}
+.sidebar {
+    width: 300px; /* Помилка: жорстка ширина */
+    background: #eee;
+    padding: 20px;
+}
+.main-content {
+    width: 900px; /* Помилка: жорстка ширина, викличе overflow на мобільному */
+    padding: 20px;
+}
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+.card {
+    width: 250px; /* Помилка: жорстка ширина картки */
+}
+
+/* Помилка: занадто багато брейкпоінтів замість auto-fit */
+@media (min-width: 600px) {
+    .cards-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 900px) {
+    .cards-grid { grid-template-columns: 1fr 1fr 1fr; }
+}

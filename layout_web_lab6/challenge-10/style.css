@@ -1,0 +1,33 @@
+/* Challenge 10. Final Responsive Component.
+   Обов'язково: Grid, Flexbox, minmax()/auto-fit, clamp(), Container Query.
+   Ваш CSS — тут. */
+.feature-section {
+    container-type: inline-size;
+    padding: 2rem;
+}
+.feature-section h2 {
+    font-size: clamp(24px, 4vw, 40px); /* Fluid Typography */
+    text-align: center;
+}
+.feature-section > p {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+.feature {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+.feature a { margin-top: auto; } /* Flexbox для притискання кнопки до низу */
+
+/* Container Query замість Media Query */
+@container (min-width: 600px) {
+    .features { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+}
