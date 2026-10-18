@@ -21,12 +21,19 @@
  */
 
 /**
- * C1. Перетворює запис TVmaze на {@link Show}.
- * Специфікація — ТЗ, C1.
+ * C1. Перетворює запис TVmaze на Show.
  *
- * @param {RawShow} raw
- * @returns {Show}
+ * @param {import('./normalize.js').RawShow} raw
+ * @returns {import('./normalize.js').Show}
  */
 export function normalizeShow(raw) {
-  throw new Error('Not implemented');
+  return {
+    id: raw.id,
+    name: raw.name,
+    year: raw.premiered ? Number(raw.premiered.slice(0, 4)) : null,
+    rating: raw.rating?.average ?? null,
+    runtime: raw.runtime ?? null,
+    network: raw.network?.name ?? null,
+    genres: Array.isArray(raw.genres) ? [...raw.genres] : [],
+  };
 }
