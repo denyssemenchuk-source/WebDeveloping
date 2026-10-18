@@ -7,35 +7,61 @@
 
 /**
  * C5.1. Створює лічильник.
- * Специфікація — ТЗ, C5.
  *
  * @param {number} [start]
- * @returns {Counter}
+ * @returns {import('./closures.js').Counter}
  */
 export function createCounter(start = 0) {
-  throw new Error('Not implemented');
+  let current = start;
+  return {
+    increment: () => {
+      current += 1;
+      return current;
+    },
+    reset: () => {
+      current = start;
+      return current;
+    },
+    value: () => current,
+  };
 }
 
 /**
  * C5.2. Обгортає `fn` так, що вона виконується щонайбільше один раз.
- * Специфікація — ТЗ, C5.
  *
  * @template {(...args: any[]) => any} F
  * @param {F} fn
  * @returns {F}
  */
 export function once(fn) {
-  throw new Error('Not implemented');
+  let called = false;
+  let result;
+  return /** @type {F} */ (
+    (...args) => {
+      if (!called) {
+        called = true;
+        result = fn(...args);
+      }
+      return result;
+    }
+  );
 }
 
 /**
  * C5.3. Запам'ятовує результати `fn` для кожного значення її єдиного аргументу.
- * Специфікація — ТЗ, C5.
  *
  * @template T, R
  * @param {(arg: T) => R} fn
  * @returns {(arg: T) => R}
  */
 export function memoize(fn) {
-  throw new Error('Not implemented');
+  const cache = new Map();
+  return (arg) => {
+    if (cache.has(arg)) {
+      return cache.get(arg);
+    }
+    const result = fn(arg);
+    cache.set(arg, result);
+    return result;
+  };
 }
