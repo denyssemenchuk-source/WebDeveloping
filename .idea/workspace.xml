@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1989978e-c40f-4614-899b-87369be3ab1e" name="Changes" comment="fit: lab8(raw)">
+    <list default="true" id="1989978e-c40f-4614-899b-87369be3ab1e" name="Changes" comment="feat(C3): implement SortShows">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,61 +42,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="3.147270662880148E-15" />
-      <entry key="MS500" value="0.00210183155567626" />
-      <entry key="S2" value="0.5323813914258783" />
-      <entry key="S5" value="2.107581748658194" />
-      <entry key="S10" value="3.5045247468849245" />
-      <entry key="S30" value="5.00142072644975" />
-      <entry key="S60" value="5.6671721822044" />
-      <entry key="M2" value="7.41417271458517" />
-      <entry key="M5" value="12.906328693158725" />
-      <entry key="M10" value="19.441210928685386" />
-      <entry key="M15" value="24.0986799197602" />
-      <entry key="M30" value="33.20755394372724" />
-      <entry key="H1" value="43.69730425018392" />
-      <entry key="H2" value="55.435830395067974" />
-      <entry key="H4" value="66.537280194933" />
-      <entry key="D1" value="81.87472672612286" />
-      <entry key="W1" value="85.38342657412332" />
+      <entry key="MS100" value="1.0000000000000095" />
+      <entry key="MS500" value="1.0015711123063158" />
+      <entry key="S2" value="1.2181936434199074" />
+      <entry key="S5" value="1.995513946837393" />
+      <entry key="S10" value="3.1145516200292116" />
+      <entry key="S30" value="5.65240155650349" />
+      <entry key="S60" value="8.743920398802043" />
+      <entry key="M2" value="13.966172728873785" />
+      <entry key="M5" value="23.99929362610578" />
+      <entry key="M10" value="33.450067263099065" />
+      <entry key="M15" value="39.531053375172284" />
+      <entry key="M30" value="50.57371817459362" />
+      <entry key="H1" value="62.40932549647275" />
+      <entry key="H2" value="75.0346245671009" />
+      <entry key="H4" value="86.71636396023145" />
+      <entry key="D1" value="102.71032570481697" />
+      <entry key="W1" value="106.35904052133648" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0000000000045512" />
-      <entry key="S30" value="1.0001657197688223" />
-      <entry key="S60" value="1.0128732190547833" />
-      <entry key="M2" value="1.1134608397532493" />
-      <entry key="M5" value="1.4222224478868848" />
-      <entry key="M10" value="1.718023781914559" />
-      <entry key="M15" value="1.9535696146144133" />
-      <entry key="M30" value="2.4884935609770915" />
-      <entry key="H1" value="3.0386929169795502" />
-      <entry key="H2" value="3.4507195299898044" />
-      <entry key="H4" value="3.705381024002709" />
-      <entry key="D1" value="3.947842633792745" />
-      <entry key="W1" value="3.992470202328946" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="6.481989213996807E-133" />
+      <entry key="S2" value="8.972781165652537E-34" />
+      <entry key="S5" value="6.04186240229044E-14" />
+      <entry key="S10" value="2.4580200166689905E-7" />
+      <entry key="S30" value="0.006265183136237804" />
+      <entry key="S60" value="0.08016522038210502" />
+      <entry key="M2" value="0.31324950892736136" />
+      <entry key="M5" value="0.856354747290227" />
+      <entry key="M10" value="1.3331292629948217" />
+      <entry key="M15" value="1.6496467353521422" />
+      <entry key="M30" value="2.286744016702294" />
+      <entry key="H1" value="2.91291175806693" />
+      <entry key="H2" value="3.378546645634996" />
+      <entry key="H4" value="3.6664266571692385" />
+      <entry key="D1" value="3.940894913269417" />
+      <entry key="W1" value="3.99146569307046" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="6.282243373945826E-11" />
-      <entry key="MS500" value="0.011205211548900322" />
-      <entry key="S2" value="0.840748134711155" />
-      <entry key="S5" value="2.731648999464267" />
-      <entry key="S10" value="4.294249655184851" />
-      <entry key="S30" value="5.925805475625374" />
-      <entry key="S60" value="6.640917323108178" />
-      <entry key="M2" value="8.505975246914963" />
-      <entry key="M5" value="14.317423206674757" />
-      <entry key="M10" value="21.15237497335678" />
-      <entry key="M15" value="26.04697086959268" />
-      <entry key="M30" value="35.692596506644534" />
-      <entry key="H1" value="46.733812338368715" />
-      <entry key="H2" value="58.8852529430023" />
-      <entry key="H4" value="70.24193636302122" />
-      <entry key="D1" value="85.82243393336762" />
-      <entry key="W1" value="89.37587699568103" />
+      <entry key="MS100" value="0.9659363289248537" />
+      <entry key="MS500" value="0.9946100899493234" />
+      <entry key="S2" value="1.2147098087154875" />
+      <entry key="S5" value="1.992663351369704" />
+      <entry key="S10" value="3.112445213716754" />
+      <entry key="S30" value="5.657088814875038" />
+      <entry key="S60" value="8.820154097780229" />
+      <entry key="M2" value="14.272646954458065" />
+      <entry key="M5" value="24.848524234911384" />
+      <entry key="M10" value="34.7776222373585" />
+      <entry key="M15" value="41.176064822825786" />
+      <entry key="M30" value="52.85719649449997" />
+      <entry key="H1" value="65.32009414605335" />
+      <entry key="H2" value="78.41187661885763" />
+      <entry key="H4" value="90.38206091602524" />
+      <entry key="D1" value="106.65108333870967" />
+      <entry key="W1" value="110.35048613954207" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -178,7 +178,7 @@
       <workItem from="1791759196055" duration="756000" />
       <workItem from="1791791013550" duration="1209000" />
       <workItem from="1792094963593" duration="2712000" />
-      <workItem from="1792344696674" duration="476000" />
+      <workItem from="1792344696674" duration="1454000" />
     </task>
     <task id="LOCAL-00001" summary="Lab2">
       <option name="closed" value="true" />
@@ -316,7 +316,31 @@
       <option name="project" value="LOCAL" />
       <updated>1792096298484</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="feat(C1): implement normalizeShow">
+      <option name="closed" value="true" />
+      <created>1792345309159</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1792345309159</updated>
+    </task>
+    <task id="LOCAL-00019" summary="feat(C2): implement filterShows">
+      <option name="closed" value="true" />
+      <created>1792345413854</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1792345413854</updated>
+    </task>
+    <task id="LOCAL-00020" summary="feat(C3): implement SortShows">
+      <option name="closed" value="true" />
+      <created>1792345473949</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1792345473949</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,6 +375,9 @@
     <MESSAGE value="fix: lab7 update(3, added sitemap.xml)" />
     <MESSAGE value="fit: lab6 done" />
     <MESSAGE value="fit: lab8(raw)" />
-    <option name="LAST_COMMIT_MESSAGE" value="fit: lab8(raw)" />
+    <MESSAGE value="feat(C1): implement normalizeShow" />
+    <MESSAGE value="feat(C2): implement filterShows" />
+    <MESSAGE value="feat(C3): implement SortShows" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(C3): implement SortShows" />
   </component>
 </project>
