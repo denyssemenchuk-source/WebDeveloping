@@ -4,8 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1989978e-c40f-4614-899b-87369be3ab1e" name="Changes" comment="feat(C5): implement createCounter, once, memoize">
+    <list default="true" id="1989978e-c40f-4614-899b-87369be3ab1e" name="Changes" comment="Initial starter(lab_9)">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/WebDeveloping.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/check.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/check/check.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/check/checks.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/check/harness.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/check/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shows.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiments.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab_9/src/render.js" beforeDir="false" afterPath="$PROJECT_DIR$/lab_9/src/render.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/details.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filters.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/list.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/render.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,61 +66,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000171169394" />
-      <entry key="MS500" value="1.027969609541622" />
-      <entry key="S2" value="1.425558774190743" />
-      <entry key="S5" value="1.8934521723454358" />
-      <entry key="S10" value="2.27686429670924" />
-      <entry key="S30" value="2.7030776352170536" />
-      <entry key="S60" value="2.8430406543291618" />
-      <entry key="M2" value="2.9624232319576183" />
-      <entry key="M5" value="5.346659313754966" />
-      <entry key="M10" value="13.516294416103626" />
-      <entry key="M15" value="21.285560235697723" />
-      <entry key="M30" value="37.40100485276535" />
-      <entry key="H1" value="54.47355646698542" />
-      <entry key="H2" value="71.14467308451474" />
-      <entry key="H4" value="85.63935759167902" />
-      <entry key="D1" value="104.88928935345164" />
-      <entry key="W1" value="109.23716546833231" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0000000000000113" />
+      <entry key="S30" value="1.0000573844078988" />
+      <entry key="S60" value="1.0166842435316314" />
+      <entry key="M2" value="1.2902460985964632" />
+      <entry key="M5" value="3.3479235488877768" />
+      <entry key="M10" value="9.749419456378847" />
+      <entry key="M15" value="16.885334839211186" />
+      <entry key="M30" value="33.53672570857041" />
+      <entry key="H1" value="52.31676347336715" />
+      <entry key="H2" value="70.7243937729671" />
+      <entry key="H4" value="86.56552233282738" />
+      <entry key="D1" value="107.46346116828067" />
+      <entry key="W1" value="112.17374868370074" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="2.497127455071807E-184" />
-      <entry key="S5" value="3.622232174188032E-74" />
-      <entry key="S10" value="1.90321627100574E-37" />
-      <entry key="S30" value="5.753092355021482E-13" />
-      <entry key="S60" value="7.681919973979547E-7" />
-      <entry key="M2" value="9.696886062670501E-4" />
-      <entry key="M5" value="0.08490836285303759" />
-      <entry key="M10" value="0.4197789339824703" />
-      <entry key="M15" value="0.7635248993477884" />
-      <entry key="M30" value="1.5557280339039967" />
-      <entry key="H1" value="2.402621680602338" />
-      <entry key="H2" value="3.0683786407254128" />
-      <entry key="H4" value="3.4940773716212004" />
-      <entry key="D1" value="3.9093969837225906" />
-      <entry key="W1" value="3.9868925585307182" />
+      <entry key="S2" value="2.9107210317213266E-259" />
+      <entry key="S5" value="3.8512368955861366E-104" />
+      <entry key="S10" value="1.9624568519132296E-52" />
+      <entry key="S30" value="5.812174849137776E-18" />
+      <entry key="S60" value="2.4416782864480474E-9" />
+      <entry key="M2" value="5.466906219425048E-5" />
+      <entry key="M5" value="0.026877829810802098" />
+      <entry key="M10" value="0.23617966735020474" />
+      <entry key="M15" value="0.5203606512917185" />
+      <entry key="M30" value="1.2843231173374048" />
+      <entry key="H1" value="2.183009887446844" />
+      <entry key="H2" value="2.9247860754803483" />
+      <entry key="H4" value="3.411340696994899" />
+      <entry key="D1" value="3.8938140081447856" />
+      <entry key="W1" value="3.984618402737368" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="8.111296593629103E-5" />
-      <entry key="MS500" value="0.17972284023719257" />
-      <entry key="S2" value="1.0490621450196242" />
-      <entry key="S5" value="1.721021700406094" />
-      <entry key="S10" value="2.186465809202631" />
-      <entry key="S30" value="2.6719474139885335" />
-      <entry key="S60" value="2.827346537593284" />
-      <entry key="M2" value="2.955491667079912" />
-      <entry key="M5" value="5.427701257976693" />
-      <entry key="M10" value="13.932736749446475" />
-      <entry key="M15" value="22.045885199337874" />
-      <entry key="M30" value="38.95398373898843" />
-      <entry key="H1" value="56.87414672938888" />
-      <entry key="H2" value="74.21174410050024" />
-      <entry key="H4" value="89.13267362036919" />
-      <entry key="D1" value="108.79853916420312" />
-      <entry key="W1" value="113.22403640487477" />
+      <entry key="MS100" value="4.637980210362837E-7" />
+      <entry key="MS500" value="0.05410853534497864" />
+      <entry key="S2" value="0.48229909229206913" />
+      <entry key="S5" value="0.7470102789921826" />
+      <entry key="S10" value="0.864297563916619" />
+      <entry key="S30" value="0.952607025400678" />
+      <entry key="S60" value="0.9926204678679291" />
+      <entry key="M2" value="1.2777711462462034" />
+      <entry key="M5" value="3.368718218540291" />
+      <entry key="M10" value="9.981285609681533" />
+      <entry key="M15" value="17.401888661356725" />
+      <entry key="M30" value="34.81796524666819" />
+      <entry key="H1" value="54.4975203213309" />
+      <entry key="H2" value="73.64772969057591" />
+      <entry key="H4" value="89.9760178321705" />
+      <entry key="D1" value="111.35711160692857" />
+      <entry key="W1" value="116.15834305055007" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -122,7 +145,7 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#1 on main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
@@ -366,13 +389,49 @@
       <option name="project" value="LOCAL" />
       <updated>1792620913163</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="revert stupid changes">
+      <option name="closed" value="true" />
+      <created>1792621400705</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1792621400705</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Initial starter(lab_9)">
+      <option name="closed" value="true" />
+      <created>1792621790466</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1792621790466</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -383,7 +442,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -418,6 +477,8 @@
     <MESSAGE value="feat(C3): implement SortShows" />
     <MESSAGE value="feat(C4): implement StatsShows" />
     <MESSAGE value="feat(C5): implement createCounter, once, memoize" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(C5): implement createCounter, once, memoize" />
+    <MESSAGE value="revert stupid changes" />
+    <MESSAGE value="Initial starter(lab_9)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial starter(lab_9)" />
   </component>
 </project>
