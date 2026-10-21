@@ -7,8 +7,8 @@
  * @returns {Filters}
  */
 export function readFilters() {
-  // TODO C3
-  return {};
+  const form = document.querySelector('#filters');
+  return { query: form.elements.namedItem('query').value };
 }
 
 /**
@@ -18,5 +18,7 @@ export function readFilters() {
  * @param {() => void} refresh перемальовує список для поточних фільтрів
  */
 export function initFilters(refresh) {
-  // TODO C3
+  const form = document.querySelector('#filters');
+  form.addEventListener('submit', () => {}); // Помилка: немає preventDefault(), сторінка перезавантажиться
+  form.addEventListener('reset', () => refresh()); // Помилка: refresh спрацьовує ДО очищення полів
 }

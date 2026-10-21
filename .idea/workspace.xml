@@ -4,31 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1989978e-c40f-4614-899b-87369be3ab1e" name="Changes" comment="Initial starter(lab_9)">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/WebDeveloping.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/check.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/check/check.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/check/checks.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/check/harness.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/check/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shows.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_9/src/render.js" beforeDir="false" afterPath="$PROJECT_DIR$/lab_9/src/render.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/details.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/filters.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/list.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" />
+    <list default="true" id="1989978e-c40f-4614-899b-87369be3ab1e" name="Changes" comment="Challenge 2: fixes">
+      <change beforePath="$PROJECT_DIR$/lab_9/src/filters.js" beforeDir="false" afterPath="$PROJECT_DIR$/lab_9/src/filters.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -405,7 +382,39 @@
       <option name="project" value="LOCAL" />
       <updated>1792621790466</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Challenge 1: AI draft">
+      <option name="closed" value="true" />
+      <created>1792622647707</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1792622647707</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Challenge 1: fixes">
+      <option name="closed" value="true" />
+      <created>1792622767196</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1792622767196</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Challenge 2: AI draft">
+      <option name="closed" value="true" />
+      <created>1792622807915</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1792622807915</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Challenge 2: fixes">
+      <option name="closed" value="true" />
+      <created>1792622861524</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1792622861524</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,9 +464,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Lab2" />
-    <MESSAGE value="Saving Deploy" />
-    <MESSAGE value="Added part 5" />
     <MESSAGE value="lab3 made" />
     <MESSAGE value="mistakes fixed" />
     <MESSAGE value="fix: lab3 design updated" />
@@ -479,6 +485,10 @@
     <MESSAGE value="feat(C5): implement createCounter, once, memoize" />
     <MESSAGE value="revert stupid changes" />
     <MESSAGE value="Initial starter(lab_9)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial starter(lab_9)" />
+    <MESSAGE value="Challenge 1: AI draft" />
+    <MESSAGE value="Challenge 1: fixes" />
+    <MESSAGE value="Challenge 2: AI draft" />
+    <MESSAGE value="Challenge 2: fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Challenge 2: fixes" />
   </component>
 </project>
