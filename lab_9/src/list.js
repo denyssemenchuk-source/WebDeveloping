@@ -5,6 +5,12 @@
  *
  * @param {() => void} refresh перемальовує список для поточних фільтрів
  */
+import { toggle } from './state.js';
 export function initList(refresh) {
-  // TODO C2
+    document.querySelector('#results').addEventListener('click', (e) => {
+        if (e.target.dataset.action === 'toggle') { // Помилка: клік по іконцісейдсейд SVG не спрацює
+            toggle(Number(e.target.closest('li').dataset.id));
+            refresh(); // Помилка: список перемалювався, а фокус зник
+        }
+    });
 }
