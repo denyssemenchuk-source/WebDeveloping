@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1989978e-c40f-4614-899b-87369be3ab1e" name="Changes" comment="Challenge 4: fixes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="1989978e-c40f-4614-899b-87369be3ab1e" name="Changes" comment="fix(A): match renderBookingsCount function name in booking.js">
+      <change beforePath="$PROJECT_DIR$/lab_10/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/lab_10/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +22,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
   </component>
@@ -43,61 +48,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000000001047287" />
-      <entry key="S2" value="1.0067461991814601" />
-      <entry key="S5" value="1.2910878004124933" />
-      <entry key="S10" value="2.063269826708817" />
-      <entry key="S30" value="3.6268468759572987" />
-      <entry key="S60" value="4.89485308437116" />
-      <entry key="M2" value="6.924108616422281" />
-      <entry key="M5" value="10.114891928921857" />
-      <entry key="M10" value="14.552665046236612" />
-      <entry key="M15" value="20.07820755252676" />
-      <entry key="M30" value="35.924284277841664" />
-      <entry key="H1" value="56.536840074784905" />
-      <entry key="H2" value="77.59667175841261" />
-      <entry key="H4" value="95.75389636954618" />
-      <entry key="D1" value="119.6640166582866" />
-      <entry key="W1" value="125.05425661138521" />
+      <entry key="MS100" value="1.0000000000011275" />
+      <entry key="MS500" value="1.0040777809664911" />
+      <entry key="S2" value="1.252700425740923" />
+      <entry key="S5" value="1.5768227616017203" />
+      <entry key="S10" value="1.7594884868131464" />
+      <entry key="S30" value="1.9123883600328861" />
+      <entry key="S60" value="1.958735411848866" />
+      <entry key="M2" value="2.0382584207613674" />
+      <entry key="M5" value="2.8642197333378814" />
+      <entry key="M10" value="7.682508747860476" />
+      <entry key="M15" value="14.514702183420441" />
+      <entry key="M30" value="35.04632305564592" />
+      <entry key="H1" value="64.05548374559243" />
+      <entry key="H2" value="94.52596768581223" />
+      <entry key="H4" value="120.4625424659915" />
+      <entry key="D1" value="154.12700727791696" />
+      <entry key="W1" value="161.6761769431705" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="3.61042102996307E-159" />
-      <entry key="S10" value="6.0086779161442155E-80" />
-      <entry key="S30" value="3.917403198510642E-27" />
-      <entry key="S60" value="6.338963374181116E-14" />
-      <entry key="M2" value="2.7855215625802985E-7" />
-      <entry key="M5" value="0.003252820961614348" />
-      <entry key="M10" value="0.08216284837400174" />
-      <entry key="M15" value="0.257390848770783" />
-      <entry key="M30" value="0.9032721632177376" />
-      <entry key="H1" value="1.8307450396743847" />
-      <entry key="H2" value="2.6784293057015054" />
-      <entry key="H4" value="3.2645109991607555" />
-      <entry key="D1" value="3.8653667808259415" />
-      <entry key="W1" value="3.980446662425003" />
+      <entry key="S2" value="6.809736443006363E-242" />
+      <entry key="S5" value="3.4139104226104926E-97" />
+      <entry key="S10" value="5.842867808371578E-49" />
+      <entry key="S30" value="8.360046381641937E-17" />
+      <entry key="S60" value="9.143328924216788E-9" />
+      <entry key="M2" value="9.562075709087339E-5" />
+      <entry key="M5" value="0.02469744338043046" />
+      <entry key="M10" value="0.16420762876009606" />
+      <entry key="M15" value="0.34157864155550227" />
+      <entry key="M30" value="0.9394875610838042" />
+      <entry key="H1" value="1.9527242540182128" />
+      <entry key="H2" value="3.041907158028063" />
+      <entry key="H4" value="3.8741906217444773" />
+      <entry key="D1" value="4.7875393103353625" />
+      <entry key="W1" value="4.9689719363474465" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9726549474122855" />
-      <entry key="MS500" value="0.9944701687771837" />
-      <entry key="S2" value="1.0053494708354438" />
-      <entry key="S5" value="1.2903431029325094" />
-      <entry key="S10" value="2.062651906788428" />
-      <entry key="S30" value="3.626477936423857" />
-      <entry key="S60" value="4.894598784647269" />
-      <entry key="M2" value="6.923861008822339" />
-      <entry key="M5" value="10.117303022914898" />
-      <entry key="M10" value="14.633266218058733" />
-      <entry key="M15" value="20.33367251477264" />
-      <entry key="M30" value="36.825365132520275" />
-      <entry key="H1" value="58.365684025634906" />
-      <entry key="H2" value="80.27376716681803" />
-      <entry key="H4" value="99.01759558585002" />
-      <entry key="D1" value="123.52922056778745" />
-      <entry key="W1" value="129.0346791920417" />
+      <entry key="MS100" value="0.7791645796610221" />
+      <entry key="MS500" value="0.9548144680151115" />
+      <entry key="S2" value="1.2307645982984439" />
+      <entry key="S5" value="1.5630364053444568" />
+      <entry key="S10" value="1.751175235676722" />
+      <entry key="S30" value="1.9092199504277707" />
+      <entry key="S60" value="1.9570874767486517" />
+      <entry key="M2" value="2.0374502226943814" />
+      <entry key="M5" value="2.8882486257270585" />
+      <entry key="M10" value="7.845707765446358" />
+      <entry key="M15" value="14.8549712802445" />
+      <entry key="M30" value="35.98405272034253" />
+      <entry key="H1" value="66.00642304047263" />
+      <entry key="H2" value="97.5664871017024" />
+      <entry key="H4" value="124.33583894581541" />
+      <entry key="D1" value="158.91435797039463" />
+      <entry key="W1" value="166.64512074415836" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -112,35 +117,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#1 on main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;junie.plugin.stays.banner.dismissed&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/denys/WebstormProjects/WebDeveloping&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\denys\\WebstormProjects\\WebDeveloping\\frontend-lab-1\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "#2 on main",
+    "ignore.virus.scanning.warn.message": "true",
+    "javascript.preferred.runtime.type.id": "node",
+    "junie.onboarding.icon.badge.shown": "true",
+    "junie.plugin.stays.banner.dismissed": "true",
+    "last_opened_file_path": "C:/Users/denys/WebstormProjects/WebDeveloping",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\denys\\WebstormProjects\\WebDeveloping\\frontend-lab-1\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "to.speed.mode.migration.done": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\denys\WebstormProjects\WebDeveloping" />
@@ -181,6 +186,9 @@
       <workItem from="1792094963593" duration="2712000" />
       <workItem from="1792344696674" duration="3301000" />
       <workItem from="1792396134174" duration="1831000" />
+      <workItem from="1792624527959" duration="426000" />
+      <workItem from="1792624970377" duration="16000" />
+      <workItem from="1792672091215" duration="85000" />
     </task>
     <task id="LOCAL-00001" summary="Lab2">
       <option name="closed" value="true" />
@@ -446,7 +454,23 @@
       <option name="project" value="LOCAL" />
       <updated>1792623162473</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="git commit -am &quot;fix(A): fix pricePerHour property typo for royal-court in venues.json&quot;">
+      <option name="closed" value="true" />
+      <created>1792676038172</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1792676038172</updated>
+    </task>
+    <task id="LOCAL-00035" summary="fix(A): match renderBookingsCount function name in booking.js">
+      <option name="closed" value="true" />
+      <created>1792676528378</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1792676528378</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,8 +530,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: lab2 design updated" />
-    <MESSAGE value="fit: lab4_5 initial" />
     <MESSAGE value="fix: lab4_5 full done" />
     <MESSAGE value="fix: lab4_5 last full done" />
     <MESSAGE value="fit: lab7 designed" />
@@ -531,6 +553,8 @@
     <MESSAGE value="Challenge 3: fixes" />
     <MESSAGE value="Challenge 4: AI draft" />
     <MESSAGE value="Challenge 4: fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Challenge 4: fixes" />
+    <MESSAGE value="git commit -am &quot;fix(A): fix pricePerHour property typo for royal-court in venues.json&quot;" />
+    <MESSAGE value="fix(A): match renderBookingsCount function name in booking.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(A): match renderBookingsCount function name in booking.js" />
   </component>
 </project>
