@@ -35,7 +35,7 @@ function readFilters() {
 async function handleSearch(event) {
   event.preventDefault();
   const requestId = ++lastRequestId;
-  status.textContent = 'Шукаємо…';
+  status.textContent = 'Шукаємоо…';
   results.setAttribute('aria-busy', 'true');
 
   const found = await fetchVenues(readFilters());
