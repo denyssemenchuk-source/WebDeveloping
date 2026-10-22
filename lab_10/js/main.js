@@ -11,10 +11,11 @@ const status = document.getElementById('status');
 
 // Venues currently on screen
 let venues = [];
+let lastRequestId = 0;
 
 /* Mobile menu */
 
-const menuToggle = document.querySelector('.site-header button');
+const menuToggle = document.querySelector('.menu-toggle');
 const siteNav = document.getElementById('site-nav');
 
 menuToggle.addEventListener('click', () => {
@@ -33,33 +34,31 @@ function readFilters() {
 
 async function handleSearch(event) {
   event.preventDefault();
+  const requestId = ++lastRequestId;
   status.textContent = 'Шукаємо…';
   results.setAttribute('aria-busy', 'true');
 
   const found = await fetchVenues(readFilters());
+  if (requestId !== lastRequestId) return;
+
   renderResults(results, found);
   venues = found;
   results.setAttribute('aria-busy', 'false');
+
+  const count = results.children.length;
+  status.textContent = count ? `Знайдено: ${count}` : 'Нічого не знайдено';
 }
 
 form.addEventListener('submit', handleSearch);
 
-// Status line, announced by screen readers (role="status")
-form.addEventListener('submit', () => {
-  const count = results.children.length;
-  status.textContent = count ? `Знайдено: ${count}` : 'Нічого не знайдено';
-});
-
 /* Booking */
 
-function bindBookButtons() {
-  document.querySelectorAll('.venue-card__book').forEach((button) => {
-    button.addEventListener('click', () => {
-      const venue = venues.find((item) => item.id === button.dataset.id);
-      openBooking(venue, form.date.value || toISODate(new Date()));
-    });
-  });
-}
+results.addEventListener('click', (event) => {
+  const button = event.target.closest('.venue-card__book');
+  if (!button) return;
+  const venue = venues.find((item) => item.id === button.dataset.id);
+  openBooking(venue, form.date.value || toISODate(new Date()));
+});
 
 /* Initial state: popular venues */
 
@@ -67,4 +66,3 @@ venues = await fetchVenues({ popular: true });
 renderResults(results, venues);
 results.setAttribute('aria-busy', 'false');
 status.textContent = `Популярні майданчики: ${venues.length}`;
-bindBookButtons();
