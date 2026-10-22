@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1989978e-c40f-4614-899b-87369be3ab1e" name="Changes" comment="fixes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1989978e-c40f-4614-899b-87369be3ab1e" name="Changes" comment="git commit -am &quot;fix(A): fix pricePerHour property typo for royal-court in venues.json&quot;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,61 +46,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.1804969043512816" />
-      <entry key="MS500" value="2.421191849554123" />
-      <entry key="S2" value="5.671273787172027" />
-      <entry key="S5" value="8.173498111665818" />
-      <entry key="S10" value="9.685988052535834" />
-      <entry key="S30" value="11.10563020668041" />
-      <entry key="S60" value="11.618814488789088" />
-      <entry key="M2" value="13.363244975982402" />
-      <entry key="M5" value="21.941594393260175" />
-      <entry key="M10" value="32.33629403487794" />
-      <entry key="M15" value="40.43378638888246" />
-      <entry key="M30" value="59.56261621869807" />
-      <entry key="H1" value="83.1375157096447" />
-      <entry key="H2" value="106.7772074165349" />
-      <entry key="H4" value="126.86542370713083" />
-      <entry key="D1" value="153.0780628572777" />
-      <entry key="W1" value="158.96718846151194" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0000000000857376" />
+      <entry key="S60" value="1.0000322831519424" />
+      <entry key="M2" value="1.0222750653208694" />
+      <entry key="M5" value="2.6983648973819605" />
+      <entry key="M10" value="9.996460065369488" />
+      <entry key="M15" value="18.23185453806965" />
+      <entry key="M30" value="39.88369869086095" />
+      <entry key="H1" value="68.1728762799758" />
+      <entry key="H2" value="96.97917428415109" />
+      <entry key="H4" value="121.27974528693177" />
+      <entry key="D1" value="152.72407391200036" />
+      <entry key="W1" value="159.7655544262898" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.3000453026998063E-20" />
-      <entry key="MS500" value="1.0538812970879048E-4" />
-      <entry key="S2" value="0.1013206399856636" />
-      <entry key="S5" value="0.4002019217156711" />
-      <entry key="S10" value="0.6326151450255287" />
-      <entry key="S30" value="0.8584464222450612" />
-      <entry key="S60" value="0.9265238379259654" />
-      <entry key="M2" value="0.9625610965114632" />
-      <entry key="M5" value="0.985830951453083" />
-      <entry key="M10" value="1.037453296781153" />
-      <entry key="M15" value="1.1673673004438667" />
-      <entry key="M30" value="1.7367985298803887" />
-      <entry key="H1" value="2.655034230848437" />
-      <entry key="H2" value="3.5469948421540165" />
-      <entry key="H4" value="4.183485678175299" />
-      <entry key="D1" value="4.849220172611184" />
-      <entry key="W1" value="4.978067319901997" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="2.089879761436516E-168" />
+      <entry key="S5" value="8.473220730815368E-68" />
+      <entry key="S10" value="2.9108797176825016E-34" />
+      <entry key="S30" value="6.627373089945852E-12" />
+      <entry key="S60" value="2.574368483715151E-6" />
+      <entry key="M2" value="0.0016044838913494724" />
+      <entry key="M5" value="0.07630715674950553" />
+      <entry key="M10" value="0.2886356471187003" />
+      <entry key="M15" value="0.49750234420981077" />
+      <entry key="M30" value="1.1338177368609121" />
+      <entry key="H1" value="2.145196237649822" />
+      <entry key="H2" value="3.1882987425588647" />
+      <entry key="H4" value="3.9663178278114946" />
+      <entry key="D1" value="4.8063283931858525" />
+      <entry key="W1" value="4.971753137641912" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.1549940670207497" />
-      <entry key="MS500" value="2.3876055724377707" />
-      <entry key="S2" value="5.654641234813292" />
-      <entry key="S5" value="8.413333166552405" />
-      <entry key="S10" value="10.189715469776445" />
-      <entry key="S30" value="11.904306274705217" />
-      <entry key="S60" value="12.512826230623768" />
-      <entry key="M2" value="14.308780994838042" />
-      <entry key="M5" value="22.92008069881853" />
-      <entry key="M10" value="33.36926206365907" />
-      <entry key="M15" value="41.59742022811667" />
-      <entry key="M30" value="61.296385711296686" />
-      <entry key="H1" value="85.79020841413123" />
-      <entry key="H2" value="110.32262168701651" />
-      <entry key="H4" value="131.04796150123835" />
-      <entry key="D1" value="157.92709477096932" />
-      <entry key="W1" value="163.94522798939926" />
+      <entry key="MS100" value="0.2552530314267983" />
+      <entry key="MS500" value="0.761016690419679" />
+      <entry key="S2" value="0.9340035898061413" />
+      <entry key="S5" value="0.9730595473613218" />
+      <entry key="S10" value="0.9864378071431172" />
+      <entry key="S30" value="0.9954586767413407" />
+      <entry key="S60" value="0.997761521686967" />
+      <entry key="M2" value="1.0227139008332014" />
+      <entry key="M5" value="2.773648486846223" />
+      <entry key="M10" value="10.283620283722838" />
+      <entry key="M15" value="18.727614065068913" />
+      <entry key="M30" value="41.015463151767335" />
+      <entry key="H1" value="70.31614269747796" />
+      <entry key="H2" value="100.16603332803409" />
+      <entry key="H4" value="125.24515495344829" />
+      <entry key="D1" value="157.5302141309949" />
+      <entry key="W1" value="164.7372795813914" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -454,7 +452,15 @@
       <option name="project" value="LOCAL" />
       <updated>1792623162473</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="git commit -am &quot;fix(A): fix pricePerHour property typo for royal-court in venues.json&quot;">
+      <option name="closed" value="true" />
+      <created>1792676038172</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1792676038172</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,7 +520,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: lab2 design updated" />
     <MESSAGE value="fit: lab4_5 initial" />
     <MESSAGE value="fix: lab4_5 full done" />
     <MESSAGE value="fix: lab4_5 last full done" />
@@ -539,6 +544,7 @@
     <MESSAGE value="Challenge 3: fixes" />
     <MESSAGE value="Challenge 4: AI draft" />
     <MESSAGE value="Challenge 4: fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Challenge 4: fixes" />
+    <MESSAGE value="git commit -am &quot;fix(A): fix pricePerHour property typo for royal-court in venues.json&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="git commit -am &quot;fix(A): fix pricePerHour property typo for royal-court in venues.json&quot;" />
   </component>
 </project>
